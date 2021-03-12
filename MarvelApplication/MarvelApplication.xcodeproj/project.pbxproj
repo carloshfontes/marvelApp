@@ -20,6 +20,8 @@
 		40F4422E25FC23D7002E02B7 /* URLSessionDataTaskProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40F4422D25FC23D7002E02B7 /* URLSessionDataTaskProtocol.swift */; };
 		40F4423225FC23F3002E02B7 /* URLSessionProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40F4423125FC23F3002E02B7 /* URLSessionProtocol.swift */; };
 		40F4423625FC245C002E02B7 /* ServiceProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40F4423525FC245C002E02B7 /* ServiceProtocol.swift */; };
+		40F4423A25FC24F0002E02B7 /* ServiceClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40F4423925FC24F0002E02B7 /* ServiceClient.swift */; };
+		40F4423E25FC2522002E02B7 /* ServiceHandleError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40F4423D25FC2522002E02B7 /* ServiceHandleError.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -77,6 +79,8 @@
 		40F4422D25FC23D7002E02B7 /* URLSessionDataTaskProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLSessionDataTaskProtocol.swift; sourceTree = "<group>"; };
 		40F4423125FC23F3002E02B7 /* URLSessionProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLSessionProtocol.swift; sourceTree = "<group>"; };
 		40F4423525FC245C002E02B7 /* ServiceProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceProtocol.swift; sourceTree = "<group>"; };
+		40F4423925FC24F0002E02B7 /* ServiceClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceClient.swift; sourceTree = "<group>"; };
+		40F4423D25FC2522002E02B7 /* ServiceHandleError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceHandleError.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -179,6 +183,8 @@
 				40F4422D25FC23D7002E02B7 /* URLSessionDataTaskProtocol.swift */,
 				40F4423125FC23F3002E02B7 /* URLSessionProtocol.swift */,
 				40F4423525FC245C002E02B7 /* ServiceProtocol.swift */,
+				40F4423925FC24F0002E02B7 /* ServiceClient.swift */,
+				40F4423D25FC2522002E02B7 /* ServiceHandleError.swift */,
 			);
 			path = Service;
 			sourceTree = "<group>";
@@ -346,7 +352,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				40F4423625FC245C002E02B7 /* ServiceProtocol.swift in Sources */,
+				40F4423E25FC2522002E02B7 /* ServiceHandleError.swift in Sources */,
 				40F4423225FC23F3002E02B7 /* URLSessionProtocol.swift in Sources */,
+				40F4423A25FC24F0002E02B7 /* ServiceClient.swift in Sources */,
 				40F4422E25FC23D7002E02B7 /* URLSessionDataTaskProtocol.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
