@@ -11,6 +11,8 @@ import Foundation
 public final class CharactersListViewController: UIViewController {
     
     // MARK: - Properties
+    var interactor: CharactersListInteractorInput?
+    var router: CharactersListRouterProtocol?
     
     // MARK: - View Lifecycle
     public init() {
@@ -23,3 +25,9 @@ public final class CharactersListViewController: UIViewController {
 }
 
 // MARK: - Extensions
+
+
+// MARK: - Presenter output
+extension CharactersListViewController: CharactersListPresenterOutput {
+    
+}
