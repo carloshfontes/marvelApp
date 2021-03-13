@@ -11,7 +11,7 @@ import Foundation
 public final class CharactersListConfigurator {
 
     
-    static func configureWith(viewController: CharactersListViewController){
+    public static func configureWith(viewController: CharactersListViewController){
         let interactor: CharactersListInteractorInput = CharactersListInteractor()
         let presenter: CharactersListPresenterInput = CharactersListPresenter()
         let router: CharactersListRouterProtocol = CharactersListRouter()
