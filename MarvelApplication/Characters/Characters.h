@@ -6,6 +6,7 @@
 //
 
 #import <Foundation/Foundation.h>
+#import <UIKit/UIKit.h>
 
 //! Project version number for Characters.
 FOUNDATION_EXPORT double CharactersVersionNumber;
