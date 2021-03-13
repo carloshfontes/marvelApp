@@ -7,14 +7,14 @@
 
 import Foundation
 
-typealias DataTaskResult = (Data?, URLResponse?, Error?) -> Void
+public typealias DataTaskResult = (Data?, URLResponse?, Error?) -> Void
 
-protocol URLSessionProtocol {
+public protocol URLSessionProtocol {
     func dataTaskWithRequest(_ request: URLRequest, completionHandler: @escaping DataTaskResult) -> URLSessionDataTaskProtocol
 }
 
 extension URLSession: URLSessionProtocol {
-    func dataTaskWithRequest(_ request: URLRequest, completionHandler: @escaping DataTaskResult) -> URLSessionDataTaskProtocol {
+    public func dataTaskWithRequest(_ request: URLRequest, completionHandler: @escaping DataTaskResult) -> URLSessionDataTaskProtocol {
         return dataTask(with: request, completionHandler: completionHandler) as URLSessionDataTaskProtocol
     }
 }

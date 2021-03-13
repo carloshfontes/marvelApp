@@ -7,7 +7,7 @@
 
 import Foundation
 
-enum ServiceHandleError: Error {
+public enum ServiceHandleError: Error {
     
     case decode
     case invalidUrl
