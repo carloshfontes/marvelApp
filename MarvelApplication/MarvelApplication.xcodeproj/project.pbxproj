@@ -27,6 +27,7 @@
 		40F4425A25FC262F002E02B7 /* Characters.h in Headers */ = {isa = PBXBuildFile; fileRef = 40F4424A25FC262F002E02B7 /* Characters.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		40F4425D25FC262F002E02B7 /* Characters.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 40F4424825FC262E002E02B7 /* Characters.framework */; };
 		40F4425E25FC262F002E02B7 /* Characters.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 40F4424825FC262E002E02B7 /* Characters.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		40F4427525FCF06E002E02B7 /* CharactersListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40F4427425FCF06E002E02B7 /* CharactersListViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -114,6 +115,7 @@
 		40F4425025FC262F002E02B7 /* CharactersTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CharactersTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		40F4425725FC262F002E02B7 /* CharactersTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharactersTests.swift; sourceTree = "<group>"; };
 		40F4425925FC262F002E02B7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		40F4427425FCF06E002E02B7 /* CharactersListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharactersListViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -282,6 +284,7 @@
 		40F4426A25FC2643002E02B7 /* CharacterList */ = {
 			isa = PBXGroup;
 			children = (
+				40F4427425FCF06E002E02B7 /* CharactersListViewController.swift */,
 			);
 			path = CharacterList;
 			sourceTree = "<group>";
@@ -431,6 +434,7 @@
 					};
 					40F4424725FC262E002E02B7 = {
 						CreatedOnToolsVersion = 12.2;
+						LastSwiftMigration = 1220;
 					};
 					40F4424F25FC262F002E02B7 = {
 						CreatedOnToolsVersion = 12.2;
@@ -535,6 +539,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				40F4427525FCF06E002E02B7 /* CharactersListViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -851,6 +856,7 @@
 		40F4425F25FC262F002E02B7 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEFINES_MODULE = YES;
@@ -868,6 +874,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.carlosfontes.Characters;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VERSIONING_SYSTEM = "apple-generic";
@@ -878,6 +885,7 @@
 		40F4426025FC262F002E02B7 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEFINES_MODULE = YES;
