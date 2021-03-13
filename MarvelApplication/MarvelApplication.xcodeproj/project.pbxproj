@@ -32,6 +32,7 @@
 		40F4428125FCF23F002E02B7 /* CharactersListInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40F4428025FCF23F002E02B7 /* CharactersListInteractor.swift */; };
 		40F4428725FCF295002E02B7 /* CharactersListPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40F4428625FCF295002E02B7 /* CharactersListPresenter.swift */; };
 		40F4428D25FCF3BD002E02B7 /* CharactersListRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40F4428C25FCF3BD002E02B7 /* CharactersListRouter.swift */; };
+		40F4429725FCF809002E02B7 /* AppFlowCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40F4429625FCF809002E02B7 /* AppFlowCoordinator.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -124,6 +125,7 @@
 		40F4428025FCF23F002E02B7 /* CharactersListInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharactersListInteractor.swift; sourceTree = "<group>"; };
 		40F4428625FCF295002E02B7 /* CharactersListPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharactersListPresenter.swift; sourceTree = "<group>"; };
 		40F4428C25FCF3BD002E02B7 /* CharactersListRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharactersListRouter.swift; sourceTree = "<group>"; };
+		40F4429625FCF809002E02B7 /* AppFlowCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppFlowCoordinator.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -216,6 +218,7 @@
 		4087A07D25FBAAF400971174 /* Core */ = {
 			isa = PBXGroup;
 			children = (
+				40F4429625FCF809002E02B7 /* AppFlowCoordinator.swift */,
 			);
 			path = Core;
 			sourceTree = "<group>";
@@ -521,6 +524,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				40F4429725FCF809002E02B7 /* AppFlowCoordinator.swift in Sources */,
 				4087A06825FBAAB600971174 /* ViewController.swift in Sources */,
 				4087A06425FBAAB600971174 /* AppDelegate.swift in Sources */,
 				4087A06625FBAAB600971174 /* SceneDelegate.swift in Sources */,
