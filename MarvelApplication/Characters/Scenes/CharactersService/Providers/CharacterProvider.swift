@@ -48,10 +48,14 @@ extension CharacterProvider: ServiceProtocol {
         switch self {
         
         case .characters(orderBy: let orderBy, limit: let limit):
+            let ts = String(Date().timeIntervalSince1970)
+            let hash = MD5(string: ts + CharacterBaseParameters.privateApiKey + CharacterBaseParameters.publicApiKey)
             return [
                 "orderBy": orderBy.get(),
                 "limit": limit,
-                "apikey": CharacterBaseParameters.apiKey
+                "apikey": CharacterBaseParameters.publicApiKey,
+                "ts": ts,
+                "hash": hash
             ]
         }
     }
@@ -62,3 +66,5 @@ extension CharacterProvider: ServiceProtocol {
     
     
 }
+
+

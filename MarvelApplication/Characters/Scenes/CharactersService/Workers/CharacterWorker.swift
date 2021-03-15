@@ -10,11 +10,11 @@ import Service
 
 typealias CharacterFechCompletion = (Result<[Character], ServiceHandleError>) -> Void
 
-protocol CharacterServiceWorker: class {
+protocol CharacterServiceWorkerProtocol: class {
     func getListOfCharactersOrder(by order: CharacterOrderBy, andWithLimit limit: Int, completion: @escaping CharacterFechCompletion)
 }
 
-final class CharactersWorker: CharacterServiceWorker, ServiceClient {
+final class CharacterServiceWorker: CharacterServiceWorkerProtocol, ServiceClient {
 
     var session: URLSessionProtocol
     
