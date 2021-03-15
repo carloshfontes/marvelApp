@@ -17,6 +17,8 @@
 		4041128B26001507009D5E3B /* MarvelUI.h in Headers */ = {isa = PBXBuildFile; fileRef = 4041127B26001507009D5E3B /* MarvelUI.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		4041128E26001507009D5E3B /* MarvelUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4041127926001507009D5E3B /* MarvelUI.framework */; };
 		4041128F26001507009D5E3B /* MarvelUI.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 4041127926001507009D5E3B /* MarvelUI.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		4041129E2600153D009D5E3B /* ViewCodable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4041129D2600153D009D5E3B /* ViewCodable.swift */; };
+		404112A62600161E009D5E3B /* UIViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 404112A52600161E009D5E3B /* UIViewExtension.swift */; };
 		4087A06425FBAAB600971174 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4087A06325FBAAB600971174 /* AppDelegate.swift */; };
 		4087A06625FBAAB600971174 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4087A06525FBAAB600971174 /* SceneDelegate.swift */; };
 		4087A07025FBAAB900971174 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4087A06F25FBAAB900971174 /* Assets.xcassets */; };
@@ -145,6 +147,8 @@
 		4041128126001507009D5E3B /* MarvelUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MarvelUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		4041128826001507009D5E3B /* MarvelUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarvelUITests.swift; sourceTree = "<group>"; };
 		4041128A26001507009D5E3B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		4041129D2600153D009D5E3B /* ViewCodable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewCodable.swift; sourceTree = "<group>"; };
+		404112A52600161E009D5E3B /* UIViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewExtension.swift; sourceTree = "<group>"; };
 		4087A06025FBAAB600971174 /* MarvelApplication.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MarvelApplication.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4087A06325FBAAB600971174 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4087A06525FBAAB600971174 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -269,6 +273,7 @@
 		4041127A26001507009D5E3B /* MarvelUI */ = {
 			isa = PBXGroup;
 			children = (
+				4041129C2600152D009D5E3B /* ViewCode */,
 				4041127B26001507009D5E3B /* MarvelUI.h */,
 				4041127C26001507009D5E3B /* Info.plist */,
 			);
@@ -282,6 +287,15 @@
 				4041128A26001507009D5E3B /* Info.plist */,
 			);
 			path = MarvelUITests;
+			sourceTree = "<group>";
+		};
+		4041129C2600152D009D5E3B /* ViewCode */ = {
+			isa = PBXGroup;
+			children = (
+				4041129D2600153D009D5E3B /* ViewCodable.swift */,
+				404112A52600161E009D5E3B /* UIViewExtension.swift */,
+			);
+			path = ViewCode;
 			sourceTree = "<group>";
 		};
 		4087A05725FBAAB600971174 = {
@@ -652,6 +666,7 @@
 				TargetAttributes = {
 					4041127826001507009D5E3B = {
 						CreatedOnToolsVersion = 12.2;
+						LastSwiftMigration = 1220;
 					};
 					4041128026001507009D5E3B = {
 						CreatedOnToolsVersion = 12.2;
@@ -761,6 +776,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4041129E2600153D009D5E3B /* ViewCodable.swift in Sources */,
+				404112A62600161E009D5E3B /* UIViewExtension.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -899,6 +916,7 @@
 		4041129026001507009D5E3B /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEFINES_MODULE = YES;
@@ -916,6 +934,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.carlosfontes.MarvelUI;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VERSIONING_SYSTEM = "apple-generic";
@@ -926,6 +945,7 @@
 		4041129126001507009D5E3B /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEFINES_MODULE = YES;

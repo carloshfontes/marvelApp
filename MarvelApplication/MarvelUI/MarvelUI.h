@@ -6,6 +6,8 @@
 //
 
 #import <Foundation/Foundation.h>
+#import <UIKit/UIKit.h>
+
 
 //! Project version number for MarvelUI.
 FOUNDATION_EXPORT double MarvelUIVersionNumber;
