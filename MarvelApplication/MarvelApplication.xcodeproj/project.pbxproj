@@ -286,6 +286,8 @@
 		40F4424925FC262F002E02B7 /* Characters */ = {
 			isa = PBXGroup;
 			children = (
+				40F442A425FCFA01002E02B7 /* CharactersService */,
+				40F442B925FD03CF002E02B7 /* Models */,
 				40DBC40725FFD73F00C2B827 /* Helpers */,
 				40F4426925FC263D002E02B7 /* Scenes */,
 				40F4424A25FC262F002E02B7 /* Characters.h */,
@@ -306,8 +308,6 @@
 		40F4426925FC263D002E02B7 /* Scenes */ = {
 			isa = PBXGroup;
 			children = (
-				40F442A425FCFA01002E02B7 /* CharactersService */,
-				40F442B925FD03CF002E02B7 /* Models */,
 				40F4426B25FC2653002E02B7 /* CharacterDetails */,
 				40F4426A25FC2643002E02B7 /* CharacterList */,
 			);

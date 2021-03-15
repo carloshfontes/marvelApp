@@ -20,7 +20,7 @@ public final class CharactersListViewController: UIViewController {
     }
     
     public override func viewWillAppear(_ animated: Bool) {
-
+        interactor?.fetchListOfCharacterOrder(by: .nameIncrease, andWithLimit: 80)
     }
     
     required init?(coder: NSCoder) {
