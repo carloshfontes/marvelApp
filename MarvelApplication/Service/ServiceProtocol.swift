@@ -13,7 +13,7 @@ public protocol ServiceProtocol {
     var headers: [String: String]? { get }
 }
 
-extension ServiceProtocol {
+public extension ServiceProtocol {
     
     var urlComponents: URLComponents? {
         guard var components = URLComponents(string: path) else { return nil}

@@ -7,7 +7,7 @@
 
 import Foundation
 
-protocol ServiceClient {
+public protocol ServiceClient {
     
     var session: URLSessionProtocol { get }
     

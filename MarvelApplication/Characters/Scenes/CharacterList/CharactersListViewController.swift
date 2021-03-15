@@ -19,6 +19,10 @@ public final class CharactersListViewController: UIViewController {
         super.init(nibName: nil, bundle: nil)
     }
     
+    public override func viewWillAppear(_ animated: Bool) {
+
+    }
+    
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
@@ -29,5 +33,14 @@ public final class CharactersListViewController: UIViewController {
 
 // MARK: - Presenter output
 extension CharactersListViewController: CharactersListPresenterOutput {
+    
+    func displayListOfCharactersWith(viewObject: CharactersListModels.ViewObject) {
+        
+    }
+    
+    func displayErrorWith(message: CharactersListModels.Error) {
+        
+    }
+    
     
 }
