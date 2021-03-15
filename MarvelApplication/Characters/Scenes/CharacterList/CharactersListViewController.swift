@@ -18,9 +18,11 @@ public final class CharactersListViewController: UIViewController {
     
     private var characterCollectionDataSource: CharacterCollectionViewDataSource? {
         didSet {
-            setupCharacterCollectionViewDataSource()
+            setupCharacterCollectionViewDataSourceAndDelegate()
         }
     }
+    
+    private var characterCollectionDelegate: CharacterCollectionViewDelegate?
     
     // MARK: - View
     
@@ -45,14 +47,18 @@ public final class CharactersListViewController: UIViewController {
     
     // MARK: - Functions
     
-    private func setupCharacterCollectionViewDataSource(){
+    private func setupCharacterCollectionViewDataSourceAndDelegate(){
         guard let dataSource = characterCollectionDataSource else { return }
-        
+        guard let delegate = characterCollectionDelegate else { return }
+
         DispatchQueue.main.async {
+            self.characterListView.characterCollectionView.delegate = delegate
+
             self.characterListView.characterCollectionView.dataSource = dataSource
             self.characterListView.characterCollectionView.reloadData()
         }
     }
+    
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
@@ -66,7 +72,9 @@ public final class CharactersListViewController: UIViewController {
 extension CharactersListViewController: CharactersListPresenterOutput {
     
     func displayListOfCharactersWith(viewObject: CharactersListModels.ViewObject) {
+        self.characterCollectionDelegate = CharacterCollectionViewDelegate()
         self.characterCollectionDataSource = CharacterCollectionViewDataSource()
+
     }
     
     func displayErrorWith(message: CharactersListModels.Error) {
