@@ -14,13 +14,44 @@ public final class CharactersListViewController: UIViewController {
     var interactor: CharactersListInteractorInput?
     var router: CharactersListRouterProtocol?
     
+    // MARK: - DataSource and Delegates
+    
+    private var characterCollectionDataSource: CharacterCollectionViewDataSource? {
+        didSet {
+            setupCharacterCollectionViewDataSource()
+        }
+    }
+    
+    // MARK: - View
+    
+    let characterListView: CharacterListView = {
+        let view = CharacterListView()
+        return view
+    }()
+    
+    
     // MARK: - View Lifecycle
     public init() {
         super.init(nibName: nil, bundle: nil)
     }
     
+    public override func loadView() {
+        self.view = characterListView
+    }
+    
     public override func viewWillAppear(_ animated: Bool) {
         interactor?.fetchListOfCharacterOrder(by: .nameIncrease, andWithLimit: 80)
+    }
+    
+    // MARK: - Functions
+    
+    private func setupCharacterCollectionViewDataSource(){
+        guard let dataSource = characterCollectionDataSource else { return }
+        
+        DispatchQueue.main.async {
+            self.characterListView.characterCollectionView.dataSource = dataSource
+            self.characterListView.characterCollectionView.reloadData()
+        }
     }
     
     required init?(coder: NSCoder) {
@@ -35,7 +66,7 @@ public final class CharactersListViewController: UIViewController {
 extension CharactersListViewController: CharactersListPresenterOutput {
     
     func displayListOfCharactersWith(viewObject: CharactersListModels.ViewObject) {
-        
+        self.characterCollectionDataSource = CharacterCollectionViewDataSource()
     }
     
     func displayErrorWith(message: CharactersListModels.Error) {
