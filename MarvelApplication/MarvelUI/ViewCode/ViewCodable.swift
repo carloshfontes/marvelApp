@@ -1,20 +1,20 @@
 //
 //  ViewCodable.swift
-//  Characters
+//  MarvelUI
 //
 //  Created by Carlos Fontes on 15/03/21.
 //
 
 import Foundation
 
-protocol ViewCodable {
+public protocol ViewCodable {
     func setupViews()
     func setupViewHierarchy()
     func setupConstraints()
     func setupAditionalConfiguration()
 }
 
-extension ViewCodable {
+public extension ViewCodable {
     func setupViews() {
         setupViewHierarchy()
         setupConstraints()
