@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import MarvelUI
 
 final class CharacterListView: UIView {
     
@@ -29,7 +30,7 @@ final class CharacterListView: UIView {
     
     private func setupUI(){
         self.backgroundColor = .white
-        setupViews()
+//        setupViews()
     }
     
     required init?(coder: NSCoder) {
@@ -40,15 +41,15 @@ final class CharacterListView: UIView {
 // MARK: - View Codable
 
 extension CharacterListView: ViewCodable {
-    
+
     func setupViewHierarchy() {
        addSubview(characterCollectionView)
     }
-    
+
     func setupConstraints() {
         setupCharacterCollectionViewConstraints()
     }
-    
+
     private func setupCharacterCollectionViewConstraints(){
         characterCollectionView.translatesAutoresizingMaskIntoConstraints = false
         characterCollectionView.topAnchor.constraint(equalTo: self.topAnchor, constant: 150).isActive = true
