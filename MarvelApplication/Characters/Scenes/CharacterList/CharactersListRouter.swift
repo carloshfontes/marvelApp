@@ -20,7 +20,7 @@ public final class CharactersListRouter: CharactersListRouterProtocol {
         
         let characterDetailsVC: CharacterDetailsViewController = CharacterDetailsViewController()
         
-        CharacterDetailsConfigurator.configureWith(viewController: characterDetailsVC)
+        CharacterDetailsConfigurator.configureWith(viewController: characterDetailsVC, withCharacterID: viewObject.id, withName: viewObject.name, withDescription: viewObject.description, andWithThumbnail: viewObject.thumbnail)
         navigationController?.pushViewController(characterDetailsVC, animated: true)
 
     }

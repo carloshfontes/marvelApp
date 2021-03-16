@@ -31,6 +31,7 @@
 		40D94B64260056D2008DA631 /* CharacterDetailsInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40D94B63260056D2008DA631 /* CharacterDetailsInteractor.swift */; };
 		40D94B6C26005713008DA631 /* CharacterDetailsPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40D94B6B26005713008DA631 /* CharacterDetailsPresenter.swift */; };
 		40D94B74260057DA008DA631 /* CharacterDetailsConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40D94B73260057DA008DA631 /* CharacterDetailsConfigurator.swift */; };
+		40D94B7D26005E65008DA631 /* CharacterDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40D94B7C26005E65008DA631 /* CharacterDetailsView.swift */; };
 		40DBC40925FFD75100C2B827 /* MD5.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40DBC40825FFD75100C2B827 /* MD5.swift */; };
 		40F4421625FC2340002E02B7 /* Service.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 40F4420D25FC2340002E02B7 /* Service.framework */; };
 		40F4421D25FC2340002E02B7 /* ServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40F4421C25FC2340002E02B7 /* ServiceTests.swift */; };
@@ -179,6 +180,7 @@
 		40D94B63260056D2008DA631 /* CharacterDetailsInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterDetailsInteractor.swift; sourceTree = "<group>"; };
 		40D94B6B26005713008DA631 /* CharacterDetailsPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterDetailsPresenter.swift; sourceTree = "<group>"; };
 		40D94B73260057DA008DA631 /* CharacterDetailsConfigurator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterDetailsConfigurator.swift; sourceTree = "<group>"; };
+		40D94B7C26005E65008DA631 /* CharacterDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterDetailsView.swift; sourceTree = "<group>"; };
 		40DBC40825FFD75100C2B827 /* MD5.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MD5.swift; sourceTree = "<group>"; };
 		40F4420D25FC2340002E02B7 /* Service.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Service.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		40F4420F25FC2340002E02B7 /* Service.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Service.h; sourceTree = "<group>"; };
@@ -321,6 +323,7 @@
 		4041127A26001507009D5E3B /* MarvelUI */ = {
 			isa = PBXGroup;
 			children = (
+				40C62C592601175200773656 /* Color */,
 				4041129C2600152D009D5E3B /* ViewCode */,
 				4041127B26001507009D5E3B /* MarvelUI.h */,
 				4041127C26001507009D5E3B /* Info.plist */,
@@ -421,6 +424,21 @@
 			path = Resources;
 			sourceTree = "<group>";
 		};
+		40C62C592601175200773656 /* Color */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Color;
+			sourceTree = "<group>";
+		};
+		40D94B7B26005E59008DA631 /* UI */ = {
+			isa = PBXGroup;
+			children = (
+				40D94B7C26005E65008DA631 /* CharacterDetailsView.swift */,
+			);
+			path = UI;
+			sourceTree = "<group>";
+		};
 		40DBC40725FFD73F00C2B827 /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
@@ -504,6 +522,7 @@
 		40F4426B25FC2653002E02B7 /* CharacterDetails */ = {
 			isa = PBXGroup;
 			children = (
+				40D94B7B26005E59008DA631 /* UI */,
 				40D94B45260054CD008DA631 /* CharacterDetailsViewController.swift */,
 				40D94B5326005544008DA631 /* CharacterDetailsModels.swift */,
 				40D94B5B26005684008DA631 /* CharacterDetailsRouter.swift */,
@@ -1124,6 +1143,7 @@
 				4041121D25FFE532009D5E3B /* CharacterCollectionViewDataSource.swift in Sources */,
 				40CE411525FFDE36007E9566 /* CharacterListView.swift in Sources */,
 				40F442A825FCFA52002E02B7 /* CharacterProvider.swift in Sources */,
+				40D94B7D26005E65008DA631 /* CharacterDetailsView.swift in Sources */,
 				40D94B6C26005713008DA631 /* CharacterDetailsPresenter.swift in Sources */,
 				40D94B5C26005684008DA631 /* CharacterDetailsRouter.swift in Sources */,
 				4041120B25FFE2A0009D5E3B /* CharacterCollectionViewCell.swift in Sources */,

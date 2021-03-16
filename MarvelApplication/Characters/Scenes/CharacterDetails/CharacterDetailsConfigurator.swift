@@ -10,7 +10,10 @@ import Foundation
 public final class CharacterDetailsConfigurator {
 
     
-    public static func configureWith(viewController: CharacterDetailsViewController){
+    public static func configureWith(viewController: CharacterDetailsViewController, withCharacterID id: Int?, withName name: String?, withDescription description: String?, andWithThumbnail thumbnail: String?){
+        
+        let characterVO: CharacterDetailsModels.ViewObject.CharacterVO = CharacterDetailsModels.ViewObject.CharacterVO(id: id, name: name, description: description, thumbnail: thumbnail)
+        
         let interactor: CharacterDetailsInteractorInput = CharacterDetailsInteractor()
         let presenter: CharacterDetailsPresenterInput = CharacterDetailsPresenter()
         var router: CharacterDetailsRouterProtocol = CharacterDetailsRouter()
@@ -19,6 +22,7 @@ public final class CharacterDetailsConfigurator {
         
         viewController.router = router
         viewController.interactor = interactor
+        viewController.characterViewObject = characterVO
         
         presenter.viewController = viewController
         router.navigationController = viewController.navigationController

@@ -12,6 +12,7 @@ final class CharacterCollectionViewCell: UICollectionViewCell, Identifiable {
     
     private let backgroundImageView: UIImageView = {
         let view = UIImageView(frame: .zero)
+        view.contentMode = .scaleAspectFill
         return view
     }()
     
