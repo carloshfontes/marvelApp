@@ -18,6 +18,7 @@ public final class CharacterDetailsViewController: UIViewController {
 
     public init() {
         super.init(nibName: nil, bundle: nil)
+        self.view.backgroundColor = .red
     }
     
     

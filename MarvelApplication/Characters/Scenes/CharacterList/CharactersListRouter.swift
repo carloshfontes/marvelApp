@@ -17,7 +17,11 @@ public final class CharactersListRouter: CharactersListRouterProtocol {
     weak var navigationController: UINavigationController?
     
     func routeToCharacterDetailWith(_ viewObject: CharactersListModels.ViewObject.CharacterVO){
-
+        
+        let characterDetailsVC: CharacterDetailsViewController = CharacterDetailsViewController()
+        
+        CharacterDetailsConfigurator.configureWith(viewController: characterDetailsVC)
+        navigationController?.pushViewController(characterDetailsVC, animated: true)
 
     }
 }

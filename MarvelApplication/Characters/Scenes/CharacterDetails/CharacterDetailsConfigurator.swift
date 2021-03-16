@@ -13,7 +13,7 @@ public final class CharacterDetailsConfigurator {
     public static func configureWith(viewController: CharacterDetailsViewController){
         let interactor: CharacterDetailsInteractorInput = CharacterDetailsInteractor()
         let presenter: CharacterDetailsPresenterInput = CharacterDetailsPresenter()
-        let router: CharacterDetailsRouterProtocol = CharacterDetailsRouter()
+        var router: CharacterDetailsRouterProtocol = CharacterDetailsRouter()
         
         interactor.presenter = presenter
         
@@ -21,5 +21,6 @@ public final class CharacterDetailsConfigurator {
         viewController.interactor = interactor
         
         presenter.viewController = viewController
+        router.navigationController = viewController.navigationController
     }
 }
