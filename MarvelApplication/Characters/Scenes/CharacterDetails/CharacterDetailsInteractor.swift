@@ -12,7 +12,7 @@ protocol CharacterDetailsInteractorInput: class {
 }
 
 final class CharacterDetailsInteractor: CharacterDetailsInteractorInput {
-    var presenter: CharacterDetailsPresenterInput?
+    weak var presenter: CharacterDetailsPresenterInput?
     
     
 }

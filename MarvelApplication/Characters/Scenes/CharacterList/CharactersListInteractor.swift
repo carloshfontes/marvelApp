@@ -17,7 +17,7 @@ protocol CharactersListInteractorInput: class {
 final class CharactersListInteractor: CharactersListInteractorInput {
     
     var characterServiceWorker: CharacterServiceWorkerProtocol
-    var presenter: CharactersListPresenterInput?
+    weak var presenter: CharactersListPresenterInput?
     
     init(serviceWorker: CharacterServiceWorkerProtocol = CharacterServiceWorker()){
         self.characterServiceWorker = serviceWorker
