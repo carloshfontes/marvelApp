@@ -29,6 +29,15 @@ struct CharactersListModels {
         
     }
     
+    struct Request {
+        struct CharacterVO {
+            let id: Int?
+            let name: String?
+            let description: String?
+            let thumbnail: String?
+        }
+    }
+    
     struct Error {
         let message: String
     }

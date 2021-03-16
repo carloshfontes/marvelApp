@@ -105,8 +105,6 @@ extension CharacterCollectionViewCell: ViewCodable {
         favoriteButton.translatesAutoresizingMaskIntoConstraints = false
         favoriteButton.setTopConstraintWith(backgroundMaskView.topAnchor, withConstantEqualTo: 20)
         favoriteButton.setRightConstraintWith(backgroundMaskView.rightAnchor, withConstantEqualTo: 10)
-        
-
     }
     
 }
