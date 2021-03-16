@@ -52,6 +52,14 @@ public final class CharactersListViewController: UIViewController {
     private func setupCharacterCollectionViewDataSourceAndDelegate(){
         guard let dataSource = characterCollectionDataSource else { return }
         guard let delegate = characterCollectionDelegate else { return }
+        
+        delegate.didSelectCharacter = { [weak self] character in
+            guard let self = self else { return }
+            
+            let request: CharactersListModels.Request.CharacterVO = CharactersListModels.Request.CharacterVO(id: character.id, name: character.name, description: character.description, thumbnail: character.thumbnail)
+
+            self.router?.routeToCharacterDetailWith(request)
+        }
 
         DispatchQueue.main.async {
             self.characterListView.characterCollectionView.delegate = delegate
@@ -74,7 +82,7 @@ public final class CharactersListViewController: UIViewController {
 extension CharactersListViewController: CharactersListPresenterOutput {
     
     func displayListOfCharactersWith(viewObject: CharactersListModels.ViewObject) {
-        self.characterCollectionDelegate = CharacterCollectionViewDelegate()
+        self.characterCollectionDelegate = CharacterCollectionViewDelegate(characterListVO: viewObject.characters)
         self.characterCollectionDataSource = CharacterCollectionViewDataSource(characters: viewObject.characters)
     }
     
