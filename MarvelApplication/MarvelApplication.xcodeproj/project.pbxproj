@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		295129E95576FB9EAC9E542E /* Pods_MarvelUI_MarvelUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E64649B0893F3C9DD59C208B /* Pods_MarvelUI_MarvelUITests.framework */; };
+		401DF05926013665004A200E /* CharacterTableViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 401DF05826013665004A200E /* CharacterTableViewDataSource.swift */; };
 		4021D1F8260123D800F9E351 /* FavoritesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4021D1F7260123D800F9E351 /* FavoritesViewController.swift */; };
 		4041120B25FFE2A0009D5E3B /* CharacterCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4041120A25FFE2A0009D5E3B /* CharacterCollectionViewCell.swift */; };
 		4041121525FFE2B6009D5E3B /* Identifiable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4041121425FFE2B6009D5E3B /* Identifiable.swift */; };
@@ -160,6 +161,7 @@
 		2AFD78F7FBB9AF8A8B36053F /* Pods-MarvelApplication.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MarvelApplication.debug.xcconfig"; path = "Target Support Files/Pods-MarvelApplication/Pods-MarvelApplication.debug.xcconfig"; sourceTree = "<group>"; };
 		36433C6C21CA11B859587F14 /* Pods_Characters_CharactersTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Characters_CharactersTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		3F4B676EB5CE52BFF905DF68 /* Pods_MarvelApplication.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MarvelApplication.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		401DF05826013665004A200E /* CharacterTableViewDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterTableViewDataSource.swift; sourceTree = "<group>"; };
 		4021D1F7260123D800F9E351 /* FavoritesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesViewController.swift; sourceTree = "<group>"; };
 		4041120A25FFE2A0009D5E3B /* CharacterCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterCollectionViewCell.swift; sourceTree = "<group>"; };
 		4041121425FFE2B6009D5E3B /* Identifiable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Identifiable.swift; sourceTree = "<group>"; };
@@ -307,9 +309,26 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		401DF056260135F4004A200E /* DataSource */ = {
+			isa = PBXGroup;
+			children = (
+				401DF05826013665004A200E /* CharacterTableViewDataSource.swift */,
+			);
+			path = DataSource;
+			sourceTree = "<group>";
+		};
+		401DF057260135F9004A200E /* Delegatee */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Delegatee;
+			sourceTree = "<group>";
+		};
 		4021D1F6260123B800F9E351 /* Favorites */ = {
 			isa = PBXGroup;
 			children = (
+				401DF057260135F9004A200E /* Delegatee */,
+				401DF056260135F4004A200E /* DataSource */,
 				4081D0102601306600370EC7 /* UI */,
 				4021D1F7260123D800F9E351 /* FavoritesViewController.swift */,
 				4081CFEA260124A800370EC7 /* FavoritesConfigurator.swift */,
@@ -1172,6 +1191,7 @@
 				40D94B5426005544008DA631 /* CharacterDetailsModels.swift in Sources */,
 				40F442BB25FD03DC002E02B7 /* Marvel.swift in Sources */,
 				40F4427B25FCF1F8002E02B7 /* CharactersListConfigurator.swift in Sources */,
+				401DF05926013665004A200E /* CharacterTableViewDataSource.swift in Sources */,
 				404112322600016B009D5E3B /* CharacterCollectionViewDelegate.swift in Sources */,
 				40F442C125FD0A86002E02B7 /* CharactersListModels.swift in Sources */,
 				4021D1F8260123D800F9E351 /* FavoritesViewController.swift in Sources */,

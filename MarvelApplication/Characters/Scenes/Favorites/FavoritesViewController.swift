@@ -14,8 +14,36 @@ public final class FavoritesViewController: UIViewController {
     
     var interactor: FavoritesInteractorInput?
     
+    private var characterTableViewDataSource: CharacterTableViewDataSource? {
+        didSet {
+            setupCharacterTableViewDataSourceAndDelegate()
+        }
+    }
+        
+    // MARK: - View
+    
+    var favoriteView: FavoritesView = {
+        let view = FavoritesView(frame: .zero)
+        return view
+    }()
+    
     init() {
         super.init(nibName: nil, bundle: nil)
+    }
+    
+    public override func loadView() {
+        self.view = favoriteView
+    }
+    
+    // MARK: - Methods
+    
+    private func setupCharacterTableViewDataSourceAndDelegate(){
+        guard let dataSource = characterTableViewDataSource else { return }
+        
+        DispatchQueue.main.async {
+            self.favoriteView.charactersTableView.dataSource = dataSource
+            self.favoriteView.charactersTableView.reloadData()
+        }
     }
     
     required init?(coder: NSCoder) {
