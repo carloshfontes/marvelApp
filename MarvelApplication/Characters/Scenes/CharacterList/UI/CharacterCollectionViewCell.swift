@@ -30,6 +30,13 @@ final class CharacterCollectionViewCell: UICollectionViewCell, Identifiable {
         return label
     }()
     
+    let favoriteButton: UIButton = {
+        let button = UIButton(frame: .zero)
+        button.setImage(UIImage(systemName: "star.fill"), for: .normal)
+        button.tintColor = .gray
+        return button
+    }()
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         setupUI()
@@ -65,12 +72,14 @@ extension CharacterCollectionViewCell: ViewCodable {
         addSubview(backgroundImageView)
         backgroundImageView.addSubview(backgroundMaskView)
         addSubview(nameLabel)
+        backgroundImageView.addSubview(favoriteButton)
     }
     
     func setupConstraints() {
         setupNameLabelConstraints()
         setupBackgroundImageViewConstraints()
         setupBackgroundMaskViewConstraints()
+        setupFavoriteButtonConstraints()
     }
     
     private func setupNameLabelConstraints(){
@@ -90,6 +99,14 @@ extension CharacterCollectionViewCell: ViewCodable {
         backgroundMaskView.setRightConstraintWith(backgroundImageView.rightAnchor)
         backgroundMaskView.setTopConstraintWith(backgroundImageView.topAnchor)
         backgroundMaskView.setBottomConstraintWith(backgroundImageView.bottomAnchor)
+    }
+    
+    private func setupFavoriteButtonConstraints(){
+        favoriteButton.translatesAutoresizingMaskIntoConstraints = false
+        favoriteButton.setTopConstraintWith(backgroundMaskView.topAnchor, withConstantEqualTo: 20)
+        favoriteButton.setRightConstraintWith(backgroundMaskView.rightAnchor, withConstantEqualTo: 10)
+        
+
     }
     
 }
