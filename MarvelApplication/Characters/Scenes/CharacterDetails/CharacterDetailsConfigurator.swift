@@ -22,5 +22,8 @@ public final class CharacterDetailsConfigurator {
         
         presenter.viewController = viewController
         router.navigationController = viewController.navigationController
+        
+        
     }
+    
 }

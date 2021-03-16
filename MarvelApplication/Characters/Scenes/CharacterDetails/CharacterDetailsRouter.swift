@@ -17,5 +17,7 @@ public final class CharacterDetailsRouter: CharacterDetailsRouterProtocol {
 
     
     weak var navigationController: UINavigationController?
-    
+    deinit {
+        print("Deinicializado route")
+    }
 }

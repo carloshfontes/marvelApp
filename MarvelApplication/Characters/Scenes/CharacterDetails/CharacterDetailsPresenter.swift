@@ -19,5 +19,7 @@ protocol CharacterDetailsPresenterOutput: class {
 final class CharacterDetailsPresenter: CharacterDetailsPresenterInput {
     weak var viewController: CharacterDetailsPresenterOutput?
     
-    
+    deinit {
+        print("Deinicializado presenter")
+    }
 }

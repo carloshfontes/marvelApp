@@ -12,7 +12,10 @@ protocol CharacterDetailsInteractorInput: class {
 }
 
 final class CharacterDetailsInteractor: CharacterDetailsInteractorInput {
-    weak var presenter: CharacterDetailsPresenterInput?
+    var presenter: CharacterDetailsPresenterInput?
     
     
+    deinit {
+        print("Deinicializado interactor")
+    }
 }
