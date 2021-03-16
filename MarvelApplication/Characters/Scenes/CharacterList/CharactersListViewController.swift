@@ -44,6 +44,7 @@ public final class CharactersListViewController: UIViewController {
     }
     
     public override func viewWillAppear(_ animated: Bool) {
+        
         interactor?.fetchListOfCharacterOrder(by: .nameIncrease, andWithLimit: 80)
     }
     
@@ -55,10 +56,8 @@ public final class CharactersListViewController: UIViewController {
         
         delegate.didSelectCharacter = { [weak self] character in
             guard let self = self else { return }
-            
-            let request: CharactersListModels.Request.CharacterVO = CharactersListModels.Request.CharacterVO(id: character.id, name: character.name, description: character.description, thumbnail: character.thumbnail)
-
-            self.router?.routeToCharacterDetailWith(request)
+        
+            self.router?.routeToCharacterDetailWith(character)
         }
 
         DispatchQueue.main.async {

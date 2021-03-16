@@ -14,7 +14,7 @@ public final class CharactersListConfigurator {
     public static func configureWith(viewController: CharactersListViewController){
         let interactor: CharactersListInteractorInput = CharactersListInteractor()
         let presenter: CharactersListPresenterInput = CharactersListPresenter()
-        let router: CharactersListRouterProtocol = CharactersListRouter()
+        var router: CharactersListRouterProtocol = CharactersListRouter()
         
         interactor.presenter = presenter
         
@@ -22,5 +22,6 @@ public final class CharactersListConfigurator {
         viewController.interactor = interactor
         
         presenter.viewController = viewController
+        router.navigationController = viewController.navigationController
     }
 }
