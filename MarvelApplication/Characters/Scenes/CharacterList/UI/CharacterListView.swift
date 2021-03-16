@@ -15,6 +15,8 @@ final class CharacterListView: UIView {
         search.placeholder = "Insira o nome de um personagem"
         return search
     }()
+    
+
 
     
     var characterCollectionView: UICollectionView = {
