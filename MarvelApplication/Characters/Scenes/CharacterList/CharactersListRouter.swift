@@ -10,6 +10,7 @@ import Foundation
 protocol CharactersListRouterProtocol {
     var navigationController: UINavigationController? { get set }
     func routeToCharacterDetailWith(_ viewObject: CharactersListModels.ViewObject.CharacterVO)
+    func routeToFavorites()
 }
 
 
@@ -24,4 +25,13 @@ public final class CharactersListRouter: CharactersListRouterProtocol {
         navigationController?.pushViewController(characterDetailsVC, animated: true)
 
     }
+    
+    func routeToFavorites(){
+        let favoritesVC: FavoritesViewController = FavoritesViewController()
+        
+        FavoritesConfigurator.configureWith(viewController: favoritesVC)
+        navigationController?.pushViewController(favoritesVC, animated: true)
+    }
+
+
 }
