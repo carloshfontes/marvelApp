@@ -27,9 +27,10 @@ final class CharacterCollectionViewDataSource: NSObject, UICollectionViewDataSou
         }
         
         let character = self.characters[indexPath.row]
-        cell.configWith(name: character.name ?? "", andWithImage: nil)
+        cell.configWith(name: character.name ?? "", andWithImagePath: character.thumbnail)
         
-        cell.backgroundColor = .red
+//        cell.configWith(name: character.name, andWithImagePath:"")
+//        cell.backgroundColor = .red
         return cell
     }
     
