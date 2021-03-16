@@ -28,15 +28,19 @@ public final class CharactersListViewController: UIViewController {
     
     let characterListView: CharacterListView = {
         let view = CharacterListView()
-        
         return view
+    }()
+    
+    lazy var favoritesButtonScreen: UIBarButtonItem = {
+        let barButton = UIBarButtonItem(image: UIImage(systemName: "star.fill"), style: .plain, target: self, action: #selector(touchInFavoritesButton))
+        barButton.tintColor = .black
+        return barButton
     }()
     
     
     // MARK: - View Lifecycle
     public init() {
         super.init(nibName: nil, bundle: nil)
-        self.navigationItem.titleView = characterListView.searchBar
     }
     
     public override func loadView() {
@@ -44,7 +48,8 @@ public final class CharactersListViewController: UIViewController {
     }
     
     public override func viewWillAppear(_ animated: Bool) {
-        
+        self.navigationItem.titleView = characterListView.searchBar
+        self.navigationItem.rightBarButtonItem = favoritesButtonScreen
         interactor?.fetchListOfCharacterOrder(by: .nameIncrease, andWithLimit: 80)
     }
     
@@ -68,6 +73,11 @@ public final class CharactersListViewController: UIViewController {
         }
     }
     
+    // MARK: - Selectors
+    
+    @objc func touchInFavoritesButton(){
+        self.router?.routeToFavorites()
+    }
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
