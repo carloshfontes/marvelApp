@@ -1,0 +1,47 @@
+# Uncomment the next line to define a global platform for your project
+# platform :ios, '9.0'
+
+target 'Characters' do
+  # Comment the next line if you don't want to use dynamic frameworks
+  use_frameworks!
+  pod 'Kingfisher', '~> 5.0'
+
+  # Pods for Characters
+
+  target 'CharactersTests' do
+    # Pods for testing
+  end
+
+end
+
+target 'MarvelApplication' do
+  # Comment the next line if you don't want to use dynamic frameworks
+  use_frameworks!
+
+  # Pods for MarvelApplication
+
+end
+
+target 'MarvelUI' do
+  # Comment the next line if you don't want to use dynamic frameworks
+  use_frameworks!
+
+  # Pods for MarvelUI
+
+  target 'MarvelUITests' do
+    # Pods for testing
+  end
+
+end
+
+target 'Service' do
+  # Comment the next line if you don't want to use dynamic frameworks
+  use_frameworks!
+
+  # Pods for Service
+
+  target 'ServiceTests' do
+    # Pods for testing
+  end
+
+end

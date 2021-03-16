@@ -60,4 +60,10 @@ public extension UIView {
         self.translatesAutoresizingMaskIntoConstraints = false
         self.centerYAnchor.constraint(equalTo: constraint).isActive = true
     }
+    
+    func setDimensionsConstraintWith(height: CGFloat, andWithWidth width: CGFloat){
+        translatesAutoresizingMaskIntoConstraints = false
+        heightAnchor.constraint(equalToConstant: height).isActive = true
+        widthAnchor.constraint(equalToConstant: width).isActive = true
+    }
 }

@@ -10,12 +10,20 @@ import MarvelUI
 
 final class CharacterListView: UIView {
     
+    let searchBar: UISearchBar = {
+        let search = UISearchBar(frame: .zero)
+        search.placeholder = "Insira o nome de um personagem"
+        return search
+    }()
+
+    
     var characterCollectionView: UICollectionView = {
         let layout = UICollectionViewFlowLayout()
         layout.scrollDirection = .vertical
     
         let view = UICollectionView(frame: .zero, collectionViewLayout: layout)
         view.register(CharacterCollectionViewCell.self, forCellWithReuseIdentifier: CharacterCollectionViewCell.uniqueIdentifier)
+        view.backgroundColor = .clear
         return view
     }()
 
@@ -30,7 +38,7 @@ final class CharacterListView: UIView {
     
     private func setupUI(){
         self.backgroundColor = .white
-//        setupViews()
+        setupViews()
     }
     
     required init?(coder: NSCoder) {
@@ -43,18 +51,24 @@ final class CharacterListView: UIView {
 extension CharacterListView: ViewCodable {
 
     func setupViewHierarchy() {
+       addSubview(searchBar)
        addSubview(characterCollectionView)
     }
 
     func setupConstraints() {
+        setupSearchBarConstraints()
         setupCharacterCollectionViewConstraints()
     }
 
     private func setupCharacterCollectionViewConstraints(){
         characterCollectionView.translatesAutoresizingMaskIntoConstraints = false
-        characterCollectionView.topAnchor.constraint(equalTo: self.topAnchor, constant: 150).isActive = true
-        characterCollectionView.leftAnchor.constraint(equalTo: self.leftAnchor, constant: 20).isActive = true
-        characterCollectionView.rightAnchor.constraint(equalTo: self.rightAnchor, constant: -20).isActive = true
-        characterCollectionView.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: 0).isActive = true
+        characterCollectionView.topAnchor.constraint(equalTo: self.topAnchor, constant: 130).isActive = true
+        characterCollectionView.leftAnchor.constraint(equalTo: self.leftAnchor, constant: 0).isActive = true
+        characterCollectionView.rightAnchor.constraint(equalTo: self.rightAnchor, constant: 0).isActive = true
+        characterCollectionView.bottomAnchor.constraint(equalTo: self.bottomAnchor).isActive = true
+    }
+    
+    private func setupSearchBarConstraints(){
+        searchBar.sizeToFit()
     }
 }

@@ -28,6 +28,7 @@ public final class CharactersListViewController: UIViewController {
     
     let characterListView: CharacterListView = {
         let view = CharacterListView()
+        
         return view
     }()
     
@@ -35,6 +36,7 @@ public final class CharactersListViewController: UIViewController {
     // MARK: - View Lifecycle
     public init() {
         super.init(nibName: nil, bundle: nil)
+        self.navigationItem.titleView = characterListView.searchBar
     }
     
     public override func loadView() {
@@ -73,8 +75,7 @@ extension CharactersListViewController: CharactersListPresenterOutput {
     
     func displayListOfCharactersWith(viewObject: CharactersListModels.ViewObject) {
         self.characterCollectionDelegate = CharacterCollectionViewDelegate()
-        self.characterCollectionDataSource = CharacterCollectionViewDataSource()
-
+        self.characterCollectionDataSource = CharacterCollectionViewDataSource(characters: viewObject.characters)
     }
     
     func displayErrorWith(message: CharactersListModels.Error) {

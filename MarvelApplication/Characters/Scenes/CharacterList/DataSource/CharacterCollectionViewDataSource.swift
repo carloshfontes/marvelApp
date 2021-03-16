@@ -10,8 +10,14 @@ import Foundation
 
 final class CharacterCollectionViewDataSource: NSObject, UICollectionViewDataSource {
     
+    var characters: [CharactersListModels.ViewObject.CharacterVO]
+    
+    init(characters: [CharactersListModels.ViewObject.CharacterVO]){
+        self.characters = characters
+    }
+    
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 3
+        return self.characters.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -20,7 +26,11 @@ final class CharacterCollectionViewDataSource: NSObject, UICollectionViewDataSou
             return UICollectionViewCell()
         }
         
-        cell.backgroundColor = .red
+        let character = self.characters[indexPath.row]
+        cell.configWith(name: character.name ?? "", andWithImagePath: character.thumbnail)
+        
+//        cell.configWith(name: character.name, andWithImagePath:"")
+//        cell.backgroundColor = .red
         return cell
     }
     
