@@ -9,14 +9,14 @@ import Foundation
 
 protocol CharactersListRouterProtocol {
     var navigationController: UINavigationController? { get set }
-    func routeToCharacterDetailWith(_ request: CharactersListModels.Request.CharacterVO)
+    func routeToCharacterDetailWith(_ viewObject: CharactersListModels.ViewObject.CharacterVO)
 }
 
 
 public final class CharactersListRouter: CharactersListRouterProtocol {
     weak var navigationController: UINavigationController?
     
-    func routeToCharacterDetailWith(_ request: CharactersListModels.Request.CharacterVO){
+    func routeToCharacterDetailWith(_ viewObject: CharactersListModels.ViewObject.CharacterVO){
 
 
     }
