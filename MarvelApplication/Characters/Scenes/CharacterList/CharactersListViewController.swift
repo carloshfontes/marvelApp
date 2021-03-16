@@ -75,8 +75,7 @@ extension CharactersListViewController: CharactersListPresenterOutput {
     
     func displayListOfCharactersWith(viewObject: CharactersListModels.ViewObject) {
         self.characterCollectionDelegate = CharacterCollectionViewDelegate()
-        self.characterCollectionDataSource = CharacterCollectionViewDataSource()
-
+        self.characterCollectionDataSource = CharacterCollectionViewDataSource(characters: viewObject.characters)
     }
     
     func displayErrorWith(message: CharactersListModels.Error) {
