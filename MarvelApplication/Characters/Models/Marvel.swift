@@ -27,11 +27,6 @@ struct Character: Codable {
     let name: String?
     let description: String?
     let thumbnail: Thumbnail
-    
-//    enum CodingKeys: String, CodingKey {
-//        case id, name, description
-//        case thumbnail
-//    }
 }
 
 struct Thumbnail: Codable {
