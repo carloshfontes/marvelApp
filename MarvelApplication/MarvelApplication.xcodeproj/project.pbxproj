@@ -25,6 +25,7 @@
 		405B1A2C2602227B0070B4E6 /* CharacterMockData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 405B1A2B2602227B0070B4E6 /* CharacterMockData.swift */; };
 		405B1A3A260224190070B4E6 /* MockURLSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = 405B1A39260224190070B4E6 /* MockURLSession.swift */; };
 		405B1A42260224880070B4E6 /* MockURLSessionDataTask.swift in Sources */ = {isa = PBXBuildFile; fileRef = 405B1A41260224880070B4E6 /* MockURLSessionDataTask.swift */; };
+		405B1A68260227DA0070B4E6 /* CharacterListInteractorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 405B1A67260227DA0070B4E6 /* CharacterListInteractorTests.swift */; };
 		4081CFEB260124A800370EC7 /* FavoritesConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4081CFEA260124A800370EC7 /* FavoritesConfigurator.swift */; };
 		4081CFFB2601260600370EC7 /* FavoritesInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4081CFFA2601260600370EC7 /* FavoritesInteractor.swift */; };
 		4081D0032601263C00370EC7 /* FavoritesPresenterInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4081D0022601263C00370EC7 /* FavoritesPresenterInput.swift */; };
@@ -34,6 +35,7 @@
 		4087A06625FBAAB600971174 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4087A06525FBAAB600971174 /* SceneDelegate.swift */; };
 		4087A07025FBAAB900971174 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4087A06F25FBAAB900971174 /* Assets.xcassets */; };
 		4087A07325FBAAB900971174 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4087A07125FBAAB900971174 /* LaunchScreen.storyboard */; };
+		40C687DC26023C1400349373 /* CharacterServiceWorkTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40C687DB26023C1400349373 /* CharacterServiceWorkTests.swift */; };
 		40CE411525FFDE36007E9566 /* CharacterListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40CE411425FFDE36007E9566 /* CharacterListView.swift */; };
 		40D94B46260054CD008DA631 /* CharacterDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40D94B45260054CD008DA631 /* CharacterDetailsViewController.swift */; };
 		40D94B5426005544008DA631 /* CharacterDetailsModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40D94B5326005544008DA631 /* CharacterDetailsModels.swift */; };
@@ -182,6 +184,7 @@
 		405B1A2B2602227B0070B4E6 /* CharacterMockData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterMockData.swift; sourceTree = "<group>"; };
 		405B1A39260224190070B4E6 /* MockURLSession.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockURLSession.swift; sourceTree = "<group>"; };
 		405B1A41260224880070B4E6 /* MockURLSessionDataTask.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockURLSessionDataTask.swift; sourceTree = "<group>"; };
+		405B1A67260227DA0070B4E6 /* CharacterListInteractorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterListInteractorTests.swift; sourceTree = "<group>"; };
 		4081CFEA260124A800370EC7 /* FavoritesConfigurator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesConfigurator.swift; sourceTree = "<group>"; };
 		4081CFFA2601260600370EC7 /* FavoritesInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesInteractor.swift; sourceTree = "<group>"; };
 		4081D0022601263C00370EC7 /* FavoritesPresenterInput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesPresenterInput.swift; sourceTree = "<group>"; };
@@ -193,6 +196,7 @@
 		4087A06F25FBAAB900971174 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		4087A07225FBAAB900971174 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		4087A07425FBAAB900971174 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		40C687DB26023C1400349373 /* CharacterServiceWorkTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterServiceWorkTests.swift; sourceTree = "<group>"; };
 		40CE411425FFDE36007E9566 /* CharacterListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterListView.swift; sourceTree = "<group>"; };
 		40D94B45260054CD008DA631 /* CharacterDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterDetailsViewController.swift; sourceTree = "<group>"; };
 		40D94B5326005544008DA631 /* CharacterDetailsModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterDetailsModels.swift; sourceTree = "<group>"; };
@@ -402,6 +406,8 @@
 			isa = PBXGroup;
 			children = (
 				405B1A2A260222650070B4E6 /* Mock */,
+				405B1A67260227DA0070B4E6 /* CharacterListInteractorTests.swift */,
+				40C687DB26023C1400349373 /* CharacterServiceWorkTests.swift */,
 			);
 			path = CharactersServiceTests;
 			sourceTree = "<group>";
@@ -1248,7 +1254,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				405B1A68260227DA0070B4E6 /* CharacterListInteractorTests.swift in Sources */,
 				405B1A3A260224190070B4E6 /* MockURLSession.swift in Sources */,
+				40C687DC26023C1400349373 /* CharacterServiceWorkTests.swift in Sources */,
 				405B1A42260224880070B4E6 /* MockURLSessionDataTask.swift in Sources */,
 				40F4425825FC262F002E02B7 /* CharactersTests.swift in Sources */,
 				405B1A2C2602227B0070B4E6 /* CharacterMockData.swift in Sources */,

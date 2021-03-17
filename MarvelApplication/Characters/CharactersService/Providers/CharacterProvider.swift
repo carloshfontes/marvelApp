@@ -8,7 +8,7 @@
 import Foundation
 import Service
 
-enum CharacterOrderBy {
+public enum CharacterOrderBy {
     case nameIncrease
     case modifiedIncrease
     case nameDescrease
