@@ -12,15 +12,18 @@ protocol CharactersListInteractorInput: class {
     var characterServiceWorker: CharacterServiceWorkerProtocol { get set }
     
     func fetchListOfCharacterOrder(by: CharacterOrderBy, andWithLimit limit: Int)
+    func addCharacterWith(request: CharactersListModels.Request.CharacterVO)
 }
 
 final class CharactersListInteractor: CharactersListInteractorInput {
     
     var characterServiceWorker: CharacterServiceWorkerProtocol
+    var characterStorageWorker: CharacterStorageWorkerProtocol
     var presenter: CharactersListPresenterInput?
     
-    init(serviceWorker: CharacterServiceWorkerProtocol = CharacterServiceWorker()){
+    init(serviceWorker: CharacterServiceWorkerProtocol = CharacterServiceWorker(), characterStorageWorker: CharacterStorageWorkerProtocol){
         self.characterServiceWorker = serviceWorker
+        self.characterStorageWorker = characterStorageWorker
     }
 
     func fetchListOfCharacterOrder(by order: CharacterOrderBy, andWithLimit limit: Int) {
@@ -37,4 +40,20 @@ final class CharactersListInteractor: CharactersListInteractorInput {
             }
         }
     }
+    
+    func addCharacterWith(request: CharactersListModels.Request.CharacterVO) {
+        self.characterStorageWorker.addCharacterWith(character: request) { [weak self] (result) in
+            
+            guard let self = self else { return }
+            
+            switch result {
+                
+            case .success:
+                self.presenter?.presentSucessToFavorite()
+            case .failure(let error):
+                self.presenter?.presentErrorWith(CharactersListModels.Response.Error(message: error.localizedDescription))
+            }
+        }
+    }
+
 }

@@ -11,6 +11,8 @@ protocol CharactersListPresenterInput: class{
     var viewController: CharactersListPresenterOutput? { get set }
     
     func presetListOfCharacter(response: CharactersListModels.Fetch.Response)
+    func presentErrorWith(_ response: CharactersListModels.Response.Error)
+    func presentSucessToFavorite()
 }
 
 protocol CharactersListPresenterOutput: class{
@@ -19,7 +21,7 @@ protocol CharactersListPresenterOutput: class{
 }
 
 final class CharactersListPresenter: CharactersListPresenterInput {
-    
+
     weak var viewController: CharactersListPresenterOutput?
 
     
@@ -35,5 +37,12 @@ final class CharactersListPresenter: CharactersListPresenterInput {
             viewController?.displayErrorWith(message: CharactersListModels.Error(message: error))
         }
 
+    }
+    
+    func presentErrorWith(_ response: CharactersListModels.Response.Error) {
+        
+    }
+    
+    func presentSucessToFavorite() {
     }
 }

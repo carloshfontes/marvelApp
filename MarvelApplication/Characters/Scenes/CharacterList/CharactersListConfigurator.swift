@@ -12,7 +12,10 @@ public final class CharactersListConfigurator {
 
     
     public static func configureWith(viewController: CharactersListViewController){
-        let interactor: CharactersListInteractorInput = CharactersListInteractor()
+        let repository: CharacterRepository = CharacterCoreDataRepository(context: CoreDataStack.shared.viewContext)
+        let characterStorageWorker: CharacterStorageWorkerProtocol = CharacterStorageWorker(repository: repository)
+        
+        let interactor: CharactersListInteractorInput = CharactersListInteractor( characterStorageWorker: characterStorageWorker)
         let presenter: CharactersListPresenterInput = CharactersListPresenter()
         var router: CharactersListRouterProtocol = CharactersListRouter()
         
