@@ -68,6 +68,8 @@ public final class CharactersListViewController: UIViewController {
         guard let dataSource = characterCollectionDataSource else { return }
         guard let delegate = characterCollectionDelegate else { return }
         
+        dataSource.cellDelegate = self
+        
         delegate.didSelectCharacter = { [weak self] character in
             guard let self = self else { return }
         
@@ -109,4 +111,14 @@ extension CharactersListViewController: CharactersListPresenterOutput {
     }
     
     
+}
+
+
+extension CharactersListViewController: CharacterCollectionDelegate {
+    
+    func didTappedInFavoriteButtonOn(_ cell: CharacterCollectionViewCell, andWith character: CharactersListModels.ViewObject.CharacterVO) {
+        self.interactor?.addCharacterWith(request: CharactersListModels.Request.CharacterVO(name: character.name ?? "", description: character.description, id: UUID(), characterID: character.id ?? 0, thumbnail: nil))
+        cell.favoriteButton.tintColor = .yellow
+    }
+
 }

@@ -73,7 +73,7 @@ extension CharacterCollectionViewCell: ViewCodable {
         addSubview(backgroundImageView)
         backgroundImageView.addSubview(backgroundMaskView)
         addSubview(nameLabel)
-        backgroundImageView.addSubview(favoriteButton)
+        contentView.addSubview(favoriteButton)
     }
     
     func setupConstraints() {
@@ -104,8 +104,8 @@ extension CharacterCollectionViewCell: ViewCodable {
     
     private func setupFavoriteButtonConstraints(){
         favoriteButton.translatesAutoresizingMaskIntoConstraints = false
-        favoriteButton.setTopConstraintWith(backgroundMaskView.topAnchor, withConstantEqualTo: 20)
-        favoriteButton.setRightConstraintWith(backgroundMaskView.rightAnchor, withConstantEqualTo: 10)
+        favoriteButton.setTopConstraintWith(self.topAnchor, withConstantEqualTo: 20)
+        favoriteButton.setRightConstraintWith(self.rightAnchor, withConstantEqualTo: 10)
     }
     
 }
