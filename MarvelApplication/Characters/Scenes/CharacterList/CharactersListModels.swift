@@ -24,6 +24,14 @@ struct CharactersListModels {
     
     struct Response {
         
+        struct Error {
+            let message: String
+        }
+        
+        struct Message {
+            let text: String
+        }
+        
         let characterList: [CharacterProtocol]
         
         struct CharacterVO: CharacterProtocol {

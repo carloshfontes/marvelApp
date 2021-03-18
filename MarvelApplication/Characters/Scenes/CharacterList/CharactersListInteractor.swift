@@ -44,14 +44,14 @@ final class CharactersListInteractor: CharactersListInteractorInput {
     func addCharacterWith(request: CharactersListModels.Request.CharacterVO) {
         self.characterStorageWorker.addCharacterWith(character: request) { [weak self] (result) in
             
-//            guard let self = self else { return }
+            guard let self = self else { return }
             
             switch result {
                 
             case .success:
-            break
+                self.presenter?.presentSucessToFavorite()
             case .failure(let error):
-                print(error.localizedDescription)
+                self.presenter?.presentErrorWith(CharactersListModels.Response.Error(message: error.localizedDescription))
             }
         }
     }
