@@ -50,10 +50,19 @@ public final class CharactersListViewController: UIViewController {
     public override func viewWillAppear(_ animated: Bool) {
         self.navigationItem.titleView = characterListView.searchBar
         self.navigationItem.rightBarButtonItem = favoritesButtonScreen
-        interactor?.fetchListOfCharacterOrder(by: .nameIncrease, andWithLimit: 80)
+        self.fetchListOfCharacter()
     }
     
     // MARK: - Functions
+    
+    private func fetchListOfCharacter(){
+        
+        let options: [CharacterOrderBy] = [.modifiedDecrease, .modifiedIncrease, .nameDescrease, .nameIncrease]
+        
+        let option: CharacterOrderBy = options.randomElement() ?? .nameIncrease
+        
+        interactor?.fetchListOfCharacterOrder(by: option, andWithLimit: 80)
+    }
     
     private func setupCharacterCollectionViewDataSourceAndDelegate(){
         guard let dataSource = characterCollectionDataSource else { return }
@@ -76,8 +85,7 @@ public final class CharactersListViewController: UIViewController {
     // MARK: - Selectors
     
     @objc func touchInFavoritesButton(){
-//        self.router?.routeToFavorites()
-//        self.interactor?.addCharacterWith(request: CharactersListModels.Request.CharacterVO(name: "Iron Men", description: "slaaaa meu", id: UUID(), characterID: 202920, thumbnail: nil))
+        self.router?.routeToFavorites()
     }
     
     required init?(coder: NSCoder) {
