@@ -13,20 +13,19 @@ final class CharacterDetailsView: UIView {
     private let backgroundImageView: UIImageView = {
         let view = UIImageView(frame: .zero)
         view.contentMode = .scaleAspectFill
-        view.backgroundColor = .green
         return view
     }()
     
     private let bottomDetailView: UIView = {
         let view = UIView(frame: .zero)
-        view.backgroundColor = UIColor(red: 0.15, green: 0.12, blue: 0.23, alpha: 1.00)
+        view.backgroundColor = .white
         return view
     }()
     
     private let nameLabel: UILabel = {
         let label = UILabel(frame: .zero)
-        label.font = UIFont.boldSystemFont(ofSize: 20)
-        label.textColor = .white
+        label.font = UIFont.boldSystemFont(ofSize: 26)
+        label.textColor = .black
         label.text = ""
         return label
     }()
@@ -35,7 +34,7 @@ final class CharacterDetailsView: UIView {
     private let descriptionLabel: UILabel = {
         let label = UILabel(frame: .zero)
         label.font = UIFont.boldSystemFont(ofSize: 20)
-        label.textColor = .white
+        label.textColor = .black
         label.text = ""
         label.numberOfLines = 0
         label.lineBreakMode = .byCharWrapping

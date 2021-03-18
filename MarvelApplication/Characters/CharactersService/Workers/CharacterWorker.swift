@@ -14,16 +14,16 @@ protocol CharacterServiceWorkerProtocol: class {
     func getListOfCharactersOrder(by order: CharacterOrderBy, andWithLimit limit: Int, completion: @escaping CharacterFechCompletion)
 }
 
-final class CharacterServiceWorker: CharacterServiceWorkerProtocol, ServiceClient {
+public final class CharacterServiceWorker: CharacterServiceWorkerProtocol, ServiceClient {
 
-    var session: URLSessionProtocol
+    public var session: URLSessionProtocol
     
-    init(session: URLSessionProtocol = URLSession.shared){
+    public init(session: URLSessionProtocol = URLSession.shared){
         self.session = session
     }
     
     
-    func getListOfCharactersOrder(by order: CharacterOrderBy, andWithLimit limit: Int, completion: @escaping (Result<[Character], ServiceHandleError>) -> Void) {
+    public func getListOfCharactersOrder(by order: CharacterOrderBy, andWithLimit limit: Int, completion: @escaping (Result<[Character], ServiceHandleError>) -> Void) {
         
         guard let request = CharacterProvider.characters(orderBy: order, limit: limit).request else {
             return completion(.failure(.badRequest))

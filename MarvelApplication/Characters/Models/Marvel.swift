@@ -22,16 +22,11 @@ struct MarvelData: Codable {
     let count: Int?
 }
 
-struct Character: Codable {
+public struct Character: Codable {
     let id: Int?
     let name: String?
     let description: String?
     let thumbnail: Thumbnail
-    
-//    enum CodingKeys: String, CodingKey {
-//        case id, name, description
-//        case thumbnail
-//    }
 }
 
 struct Thumbnail: Codable {

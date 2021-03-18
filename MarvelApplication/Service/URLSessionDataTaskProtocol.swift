@@ -12,9 +12,10 @@ public protocol URLSessionDataTaskProtocol {
     func cancel()
 }
 
-extension URLSessionDataTaskProtocol {
+public extension URLSessionDataTaskProtocol {
     func resume() {}
     func cancel() {}
 
 }
+
 extension URLSessionDataTask: URLSessionDataTaskProtocol{}
