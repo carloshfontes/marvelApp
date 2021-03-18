@@ -76,7 +76,8 @@ public final class CharactersListViewController: UIViewController {
     // MARK: - Selectors
     
     @objc func touchInFavoritesButton(){
-        self.router?.routeToFavorites()
+//        self.router?.routeToFavorites()
+//        self.interactor?.addCharacterWith(request: CharactersListModels.Request.CharacterVO(name: "Iron Men", description: "slaaaa meu", id: UUID(), characterID: 202920, thumbnail: nil))
     }
     
     required init?(coder: NSCoder) {
