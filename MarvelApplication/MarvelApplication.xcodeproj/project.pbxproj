@@ -27,6 +27,7 @@
 		405B1A3A260224190070B4E6 /* MockURLSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = 405B1A39260224190070B4E6 /* MockURLSession.swift */; };
 		405B1A42260224880070B4E6 /* MockURLSessionDataTask.swift in Sources */ = {isa = PBXBuildFile; fileRef = 405B1A41260224880070B4E6 /* MockURLSessionDataTask.swift */; };
 		405B1A68260227DA0070B4E6 /* CharacterListInteractorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 405B1A67260227DA0070B4E6 /* CharacterListInteractorTests.swift */; };
+		40737A222604357700BDB218 /* FavoritesModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40737A212604357700BDB218 /* FavoritesModels.swift */; };
 		4081CFEB260124A800370EC7 /* FavoritesConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4081CFEA260124A800370EC7 /* FavoritesConfigurator.swift */; };
 		4081CFFB2601260600370EC7 /* FavoritesInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4081CFFA2601260600370EC7 /* FavoritesInteractor.swift */; };
 		4081D0032601263C00370EC7 /* FavoritesPresenterInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4081D0022601263C00370EC7 /* FavoritesPresenterInput.swift */; };
@@ -194,6 +195,7 @@
 		405B1A39260224190070B4E6 /* MockURLSession.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockURLSession.swift; sourceTree = "<group>"; };
 		405B1A41260224880070B4E6 /* MockURLSessionDataTask.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockURLSessionDataTask.swift; sourceTree = "<group>"; };
 		405B1A67260227DA0070B4E6 /* CharacterListInteractorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterListInteractorTests.swift; sourceTree = "<group>"; };
+		40737A212604357700BDB218 /* FavoritesModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesModels.swift; sourceTree = "<group>"; };
 		4081CFEA260124A800370EC7 /* FavoritesConfigurator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesConfigurator.swift; sourceTree = "<group>"; };
 		4081CFFA2601260600370EC7 /* FavoritesInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesInteractor.swift; sourceTree = "<group>"; };
 		4081D0022601263C00370EC7 /* FavoritesPresenterInput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesPresenterInput.swift; sourceTree = "<group>"; };
@@ -361,6 +363,7 @@
 				4081CFEA260124A800370EC7 /* FavoritesConfigurator.swift */,
 				4081CFFA2601260600370EC7 /* FavoritesInteractor.swift */,
 				4081D0022601263C00370EC7 /* FavoritesPresenterInput.swift */,
+				40737A212604357700BDB218 /* FavoritesModels.swift */,
 			);
 			path = Favorites;
 			sourceTree = "<group>";
@@ -1281,6 +1284,7 @@
 				404112322600016B009D5E3B /* CharacterCollectionViewDelegate.swift in Sources */,
 				40F442C125FD0A86002E02B7 /* CharactersListModels.swift in Sources */,
 				40C6880F2603BBC900349373 /* CharacterCD+CoreDataProperties.swift in Sources */,
+				40737A222604357700BDB218 /* FavoritesModels.swift in Sources */,
 				4021D1F8260123D800F9E351 /* FavoritesViewController.swift in Sources */,
 				4041121D25FFE532009D5E3B /* CharacterCollectionViewDataSource.swift in Sources */,
 				40CE411525FFDE36007E9566 /* CharacterListView.swift in Sources */,

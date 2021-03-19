@@ -10,7 +10,12 @@ import Foundation
 public final class FavoritesConfigurator {
     
     public static func configureWith(viewController: FavoritesViewController){
-        let interactor: FavoritesInteractorInput = FavoritesInteractor()
+        
+        let repository: CharacterRepository = CharacterCoreDataRepository(context: CoreDataStack.shared.viewContext)
+        
+        let characterStorageWorker: CharacterStorageWorkerProtocol = CharacterStorageWorker(repository: repository)
+        
+        let interactor: FavoritesInteractorInput = FavoritesInteractor(characterStorageWorker: characterStorageWorker)
         let presenter: FavoritesPresenterInput = FavoritesPresenter()
         
         viewController.interactor = interactor

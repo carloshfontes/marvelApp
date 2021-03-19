@@ -9,11 +9,12 @@ import Foundation
 
 protocol CharacterDetailsInteractorInput: class {
     var presenter: CharacterDetailsPresenterInput? { get set }
+    
 }
 
 final class CharacterDetailsInteractor: CharacterDetailsInteractorInput {
-    var presenter: CharacterDetailsPresenterInput?
     
+    var presenter: CharacterDetailsPresenterInput?
     
     deinit {
         print("Deinicializado interactor")

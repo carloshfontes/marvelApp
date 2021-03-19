@@ -10,7 +10,6 @@ import Foundation
 public final class CharacterDetailsViewController: UIViewController {
     
     // MARK: - Properties
-//    var characterVO: CharacterDetailsModels.ViewObject.CharacterVO?
     var interactor: CharacterDetailsInteractorInput?
     var router: CharacterDetailsRouterProtocol?
     var characterViewObject: CharacterDetailsModels.ViewObject.CharacterVO?
@@ -35,6 +34,7 @@ public final class CharacterDetailsViewController: UIViewController {
     public override func viewWillAppear(_ animated: Bool) {
         self.removeNavigationImage()
         characterDetailsView.configViewWith(characterViewObject?.thumbnail, withDescription: characterViewObject?.description, andWithName: characterViewObject?.name)
+        
     }
     
     // MARK: - Methods
@@ -57,5 +57,10 @@ public final class CharacterDetailsViewController: UIViewController {
 // MARK: - Presenter output
 
 extension CharacterDetailsViewController: CharacterDetailsPresenterOutput {
+    
+    func displayListOfCharacterWith(response: CharacterDetailsModels.Response) {
+        print(response)
+    }
+    
     
 }

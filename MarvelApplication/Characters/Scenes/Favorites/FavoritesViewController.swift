@@ -35,6 +35,10 @@ public final class FavoritesViewController: UIViewController {
         self.view = favoriteView
     }
     
+    public override func viewWillAppear(_ animated: Bool) {
+        self.interactor?.fetchListOfChacter()
+    }
+    
     // MARK: - Methods
     
     private func setupCharacterTableViewDataSourceAndDelegate(){
@@ -55,5 +59,10 @@ public final class FavoritesViewController: UIViewController {
 // MARK: - Presenter
 
 extension FavoritesViewController: FavoritesPresenterOutput {
+    
+    func displayListOfCharacterWith(response: CharacterDetailsModels.Response) {
+      print(response)
+    }
+    
     
 }

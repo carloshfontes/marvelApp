@@ -15,6 +15,7 @@ public final class CharacterDetailsConfigurator {
         let characterVO: CharacterDetailsModels.ViewObject.CharacterVO = CharacterDetailsModels.ViewObject.CharacterVO(id: id, name: name, description: description, thumbnail: thumbnail)
         
         let interactor: CharacterDetailsInteractorInput = CharacterDetailsInteractor()
+        
         let presenter: CharacterDetailsPresenterInput = CharacterDetailsPresenter()
         var router: CharacterDetailsRouterProtocol = CharacterDetailsRouter()
         
