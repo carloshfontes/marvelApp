@@ -20,6 +20,10 @@ struct CharactersListModels {
             var thumbnail: Data?
             
         }
+        
+        struct Image {
+            let path: String?
+        }
     }
     
     struct Response {
@@ -41,7 +45,10 @@ struct CharactersListModels {
             var id: UUID
             var characterID: Int
             var thumbnail: Data?
-            
+        }
+        
+        struct Image {
+            let data: Data
         }
     }
     
@@ -61,6 +68,20 @@ struct CharactersListModels {
             let name: String?
             let description: String?
             let thumbnail: String?
+        }
+        
+        struct CharacterProtocolVO: CharacterProtocol {
+            
+            var name: String
+            var description: String?
+            var id: UUID
+            var characterID: Int
+            var thumbnail: Data?
+        
+        }
+        
+        struct Image {
+            let data: Data
         }
         
     }

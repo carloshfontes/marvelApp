@@ -60,9 +60,17 @@ public final class FavoritesViewController: UIViewController {
 
 extension FavoritesViewController: FavoritesPresenterOutput {
     
-    func displayListOfCharacterWith(response: CharacterDetailsModels.Response) {
-      print(response)
+    
+    func displayListOfCharacterWith(viewObject: [FavoritesModels.ViewObject.CharacterVO]) {
+        self.characterTableViewDataSource = CharacterTableViewDataSource(characterList: viewObject)
     }
+    
+
+    
+    func displayErrorWith(response: FavoritesModels.Response.Error) {
+        
+    }
+    
     
     
 }

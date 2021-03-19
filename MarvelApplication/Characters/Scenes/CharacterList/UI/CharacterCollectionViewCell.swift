@@ -10,6 +10,8 @@ import MarvelUI
 
 final class CharacterCollectionViewCell: UICollectionViewCell, Identifiable {
     
+    var didTappedOnFavoriteButton: (() -> Void)?
+    
     private let backgroundImageView: UIImageView = {
         let view = UIImageView(frame: .zero)
         view.contentMode = .scaleAspectFill
@@ -31,10 +33,11 @@ final class CharacterCollectionViewCell: UICollectionViewCell, Identifiable {
         return label
     }()
     
-    let favoriteButton: UIButton = {
+    lazy var favoriteButton: UIButton = {
         let button = UIButton(frame: .zero)
         button.setImage(UIImage(systemName: "star.fill"), for: .normal)
         button.tintColor = .gray
+        button.addTarget(self, action: #selector(didTappedOnFavoriteButtonTarget), for: .touchUpInside)
         return button
     }()
     
@@ -56,6 +59,14 @@ final class CharacterCollectionViewCell: UICollectionViewCell, Identifiable {
         if let unwrappedImagePath = path {
             backgroundImageView.setupWith(url: unwrappedImagePath)
         }
+    }
+    
+    @objc func didTappedOnFavoriteButtonTarget(){
+        guard let didTapped = didTappedOnFavoriteButton else {
+            return
+        }
+        
+        didTapped()
     }
     
     required init?(coder: NSCoder) {

@@ -9,8 +9,14 @@ import Foundation
 
 final class CharacterTableViewDataSource: NSObject, UITableViewDataSource {
     
+    var characterList: [FavoritesModels.ViewObject.CharacterVO]
+    
+    init(characterList: [FavoritesModels.ViewObject.CharacterVO]){
+        self.characterList = characterList
+    }
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 5
+        return characterList.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -19,6 +25,14 @@ final class CharacterTableViewDataSource: NSObject, UITableViewDataSource {
             return UITableViewCell()
         }
         
+        let character: FavoritesModels.ViewObject.CharacterVO = characterList[indexPath.row]
+        
+
+        if let imageData = character.thumbnail {
+            cell.configCellWith(name: character.name, andWithImage: UIImage(data: imageData))
+        }else {
+            cell.configCellWith(name: character.name)
+        }
         return cell
     }
     

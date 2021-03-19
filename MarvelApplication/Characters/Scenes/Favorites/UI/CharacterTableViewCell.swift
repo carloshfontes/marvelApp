@@ -10,6 +10,12 @@ import MarvelUI
 
 final class CharacterTableViewCell: UITableViewCell, Identifiable {
     
+    private let thumbnailUIImageView: UIImageView = {
+        let view = UIImageView()
+        view.backgroundColor = .black
+        return view
+    }()
+    
     private let characterNameLabel: UILabel = {
         let label = UILabel(frame: .zero)
         return label
@@ -24,8 +30,12 @@ final class CharacterTableViewCell: UITableViewCell, Identifiable {
         setupViews()
     }
     
-    func configCellWith(name: String, andWithImage image: UIImage){
+    func configCellWith(name: String, andWithImage image: UIImage? = nil){
         self.characterNameLabel.text = name
+        
+        if let image = image {
+            self.thumbnailUIImageView.image = image
+        }
     }
     
     required init?(coder: NSCoder) {
@@ -38,11 +48,21 @@ final class CharacterTableViewCell: UITableViewCell, Identifiable {
 extension CharacterTableViewCell: ViewCodable {
     
     func setupViewHierarchy() {
+        addSubview(thumbnailUIImageView)
         addSubview(characterNameLabel)
     }
     
     func setupConstraints() {
+        setupThumbnailUIImageViewConstraints()
         setupCharacterNameLabelConstraints()
+    }
+    
+    private func setupThumbnailUIImageViewConstraints(){
+        thumbnailUIImageView.widthAnchor.constraint(equalToConstant: 60).isActive = true
+        thumbnailUIImageView.heightAnchor.constraint(equalToConstant: 60).isActive = true
+        thumbnailUIImageView.layer.cornerRadius = 5
+        thumbnailUIImageView.setCenterYWith(self.centerYAnchor)
+        thumbnailUIImageView.setLeftConstraintWith(self.leftAnchor, withConstantEqualTo: 20)
     }
     
     private func setupCharacterNameLabelConstraints(){

@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import Kingfisher
 
 protocol CharactersListInteractorInput: class {
     var presenter: CharactersListPresenterInput? { get set }
@@ -13,6 +14,7 @@ protocol CharactersListInteractorInput: class {
     
     func fetchListOfCharacterOrder(by: CharacterOrderBy, andWithLimit limit: Int)
     func addCharacterWith(request: CharactersListModels.Request.CharacterVO)
+    func downloadImageWith(request: CharactersListModels.Request.Image, of character: CharactersListModels.Request.CharacterVO)
 }
 
 final class CharactersListInteractor: CharactersListInteractorInput {
@@ -54,6 +56,32 @@ final class CharactersListInteractor: CharactersListInteractorInput {
                 self.presenter?.presentErrorWith(CharactersListModels.Response.Error(message: error.localizedDescription))
             }
         }
+    }
+    
+    func downloadImageWith(request: CharactersListModels.Request.Image, of character: CharactersListModels.Request.CharacterVO) {
+        
+        guard let path = request.path else {
+            return
+        }
+        
+        guard let url = URL(string: path) else {
+            return
+        }
+        
+        let downloader = ImageDownloader.default
+        
+        downloader.downloadImage(with: url, completionHandler: { [weak self] result in
+            guard let self = self else { return }
+
+            switch result {
+
+            case .success(let downloadedImage):
+                self.presenter?.presentCharacterWithDownloadedImage(response: CharactersListModels.Response.CharacterVO(name: character.name, description: character.description, id: character.id, characterID: character.characterID, thumbnail: downloadedImage.originalData))
+
+            case .failure(let error):
+                self.presenter?.presentErrorWith(CharactersListModels.Response.Error(message: error.localizedDescription))
+            }
+        })
     }
 
 }

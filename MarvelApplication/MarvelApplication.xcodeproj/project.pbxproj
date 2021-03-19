@@ -346,17 +346,17 @@
 			path = DataSource;
 			sourceTree = "<group>";
 		};
-		401DF057260135F9004A200E /* Delegatee */ = {
+		401DF057260135F9004A200E /* Delegate */ = {
 			isa = PBXGroup;
 			children = (
 			);
-			path = Delegatee;
+			path = Delegate;
 			sourceTree = "<group>";
 		};
 		4021D1F6260123B800F9E351 /* Favorites */ = {
 			isa = PBXGroup;
 			children = (
-				401DF057260135F9004A200E /* Delegatee */,
+				401DF057260135F9004A200E /* Delegate */,
 				401DF056260135F4004A200E /* DataSource */,
 				4081D0102601306600370EC7 /* UI */,
 				4021D1F7260123D800F9E351 /* FavoritesViewController.swift */,

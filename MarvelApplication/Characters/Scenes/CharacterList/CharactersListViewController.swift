@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import Kingfisher
 
 
 public final class CharactersListViewController: UIViewController {
@@ -101,6 +102,12 @@ public final class CharactersListViewController: UIViewController {
 // MARK: - Presenter output
 extension CharactersListViewController: CharactersListPresenterOutput {
     
+    
+    func saveCharacterWith(viewObject: CharactersListModels.ViewObject.CharacterProtocolVO) {
+        self.interactor?.addCharacterWith(request: CharactersListModels.Request.CharacterVO(name: viewObject.name, description: viewObject.description, id: viewObject.id, characterID: viewObject.characterID, thumbnail: viewObject.thumbnail))
+    }
+    
+    
     func displayListOfCharactersWith(viewObject: CharactersListModels.ViewObject) {
         self.characterCollectionDelegate = CharacterCollectionViewDelegate(characterListVO: viewObject.characters)
         self.characterCollectionDataSource = CharacterCollectionViewDataSource(characters: viewObject.characters)
@@ -116,9 +123,10 @@ extension CharactersListViewController: CharactersListPresenterOutput {
 
 extension CharactersListViewController: CharacterCollectionDelegate {
     
-    func didTappedInFavoriteButtonOn(_ cell: CharacterCollectionViewCell, andWith character: CharactersListModels.ViewObject.CharacterVO) {
-        self.interactor?.addCharacterWith(request: CharactersListModels.Request.CharacterVO(name: character.name ?? "", description: character.description, id: UUID(), characterID: character.id ?? 0, thumbnail: nil))
-        cell.favoriteButton.tintColor = .yellow
+    
+    func didTappedInFavoriteButtonAndSave(_ character: CharactersListModels.ViewObject.CharacterVO) {
+        
+        self.interactor?.downloadImageWith(request: CharactersListModels.Request.Image(path: character.thumbnail), of: CharactersListModels.Request.CharacterVO(name: character.name ?? "", description: character.description, id: UUID(), characterID: character.id ?? 0, thumbnail: nil))
     }
 
 }

@@ -16,7 +16,7 @@ protocol FavoritesPresenterInput: class {
 }
 
 protocol FavoritesPresenterOutput: class {
-    func displayListOfCharacterWith(response: FavoritesModels.Response)
+    func displayListOfCharacterWith(viewObject: [FavoritesModels.ViewObject.CharacterVO])
     func displayErrorWith(response: FavoritesModels.Response.Error)
 }
 
@@ -26,12 +26,12 @@ final class FavoritesPresenter: FavoritesPresenterInput {
     
     func presentListOfCharacterWith(request: FavoritesModels.Request) {
         
-        let charactersViewObject: [FavoritesModels.Response.CharacterVO] = request.characterList.map { (character) -> FavoritesModels.Response.CharacterVO in
-            return FavoritesModels.Response.CharacterVO(name: character.name, description: character.description, id: character.id, characterID: character.characterID, thumbnail: character.thumbnail)
+        let charactersViewObject: [FavoritesModels.ViewObject.CharacterVO] = request.characterList.map { (character) -> FavoritesModels.ViewObject.CharacterVO in
+            return FavoritesModels.ViewObject.CharacterVO(name: character.name, description: character.description, id: character.id, characterID: character.characterID, thumbnail: character.thumbnail)
             
         }
         
-        viewController?.displayListOfCharacterWith(response: FavoritesModels.Response(characterList: charactersViewObject))
+        viewController?.displayListOfCharacterWith(viewObject: charactersViewObject)
     }
     
     func presentErrorWith(request: FavoritesModels.Request.Error) {

@@ -46,4 +46,19 @@ struct FavoritesModels {
             let message: String
         }
     }
+    
+    struct ViewObject {
+        
+        let characterList: [CharacterVO]
+        
+        struct CharacterVO: CharacterProtocol {
+            
+            var name: String
+            var description: String?
+            var id: UUID
+            var characterID: Int
+            var thumbnail: Data?
+               
+        }
+    }
 }
