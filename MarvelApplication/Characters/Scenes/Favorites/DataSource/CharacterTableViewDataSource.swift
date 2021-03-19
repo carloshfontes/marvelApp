@@ -10,6 +10,7 @@ import Foundation
 final class CharacterTableViewDataSource: NSObject, UITableViewDataSource {
     
     var characterList: [FavoritesModels.ViewObject.CharacterVO]
+    var didRemoveCharacter: ((CharacterProtocol) -> Void)?
     
     init(characterList: [FavoritesModels.ViewObject.CharacterVO]){
         self.characterList = characterList
@@ -36,5 +37,13 @@ final class CharacterTableViewDataSource: NSObject, UITableViewDataSource {
         return cell
     }
     
+    
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete {
+            didRemoveCharacter?(characterList[indexPath.row])
+            characterList.remove(at: indexPath.row)
+            tableView.deleteRows(at: [indexPath], with: .fade)
+        }
+    }
     
 }

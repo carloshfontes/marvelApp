@@ -11,16 +11,15 @@ import Foundation
 
 protocol CharacterStorageWorkerProtocol {
     var repository: CharacterRepository { get set }
-    
-    //    func getCharacterBy(id: UUID, withCompletion completion: @escaping (Result<CharacterProtocol, Error>) -> Void)
-    
+
     func addCharacterWith(character: CharacterProtocol, withCompletion completion: @escaping (Result<Void, Error>) -> Void)
     func getListOfCharacter(completion: @escaping (Result<[CharacterProtocol], Error>) -> Void)
+    func delete(_ character: CharacterProtocol, andWithCompletion completion: @escaping (Result<Void, Error>) -> Void)
 }
 
 
 final class CharacterStorageWorker: CharacterStorageWorkerProtocol {
-    
+
     var repository: CharacterRepository
     
     init(repository: CharacterRepository){
@@ -53,5 +52,18 @@ final class CharacterStorageWorker: CharacterStorageWorkerProtocol {
             }
         }
     }
+    
+    func delete(_ character: CharacterProtocol, andWithCompletion completion: @escaping (Result<Void, Error>) -> Void) {
+        repository.delete(character) { (result) in
+            switch result {
+            
+            case .success():
+                completion(.success(()))
+            case .failure(let error):
+                completion(.failure(error))
+            }
+        }
+    }
+    
     
 }

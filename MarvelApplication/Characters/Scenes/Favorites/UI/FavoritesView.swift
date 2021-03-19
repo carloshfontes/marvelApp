@@ -15,6 +15,7 @@ final class FavoritesView: UIView {
         view.register(CharacterTableViewCell.self, forCellReuseIdentifier: CharacterTableViewCell.uniqueIdentifier)
         view.backgroundColor = .clear
         view.rowHeight = 80
+        view.tableFooterView = UIView()
         return view
     }()
     

@@ -26,6 +26,10 @@ struct FavoritesModels {
         struct Error {
             let message: String
         }
+        
+        struct Message {
+            let text: String
+        }
     }
     
     struct Response {
@@ -44,6 +48,10 @@ struct FavoritesModels {
         
         struct Error {
             let message: String
+        }
+        
+        struct Message {
+            let text: String
         }
     }
     

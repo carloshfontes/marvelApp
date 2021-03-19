@@ -36,6 +36,7 @@ public final class FavoritesViewController: UIViewController {
     }
     
     public override func viewWillAppear(_ animated: Bool) {
+        self.title = "Personagens favoritos"
         self.interactor?.fetchListOfChacter()
     }
     
@@ -43,6 +44,10 @@ public final class FavoritesViewController: UIViewController {
     
     private func setupCharacterTableViewDataSourceAndDelegate(){
         guard let dataSource = characterTableViewDataSource else { return }
+        
+        dataSource.didRemoveCharacter = { [weak self] character in
+            self?.interactor?.remove(character)
+        }
         
         DispatchQueue.main.async {
             self.favoriteView.charactersTableView.dataSource = dataSource
@@ -60,6 +65,9 @@ public final class FavoritesViewController: UIViewController {
 
 extension FavoritesViewController: FavoritesPresenterOutput {
     
+    func displaySucessMessageWith(response: FavoritesModels.Response.Message) {
+        showAlert(withTitle: "Sucesso", withMessage: response.text, withColor: .green, andWithStyle: .alert)
+    }
     
     func displayListOfCharacterWith(viewObject: [FavoritesModels.ViewObject.CharacterVO]) {
         self.characterTableViewDataSource = CharacterTableViewDataSource(characterList: viewObject)
@@ -68,7 +76,7 @@ extension FavoritesViewController: FavoritesPresenterOutput {
 
     
     func displayErrorWith(response: FavoritesModels.Response.Error) {
-        
+        showAlert(withTitle: "Erro", withMessage: response.message, withColor: .red, andWithStyle: .alert)
     }
     
     
