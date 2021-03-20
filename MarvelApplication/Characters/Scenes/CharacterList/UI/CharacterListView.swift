@@ -15,10 +15,7 @@ final class CharacterListView: UIView {
         search.placeholder = "Insira o nome de um personagem"
         return search
     }()
-    
-
-
-    
+        
     var characterCollectionView: UICollectionView = {
         let layout = UICollectionViewFlowLayout()
         layout.scrollDirection = .vertical
@@ -64,11 +61,10 @@ extension CharacterListView: ViewCodable {
 
     private func setupCharacterCollectionViewConstraints(){
         characterCollectionView.translatesAutoresizingMaskIntoConstraints = false
-        let safeArea: UILayoutGuide = layoutMarginsGuide
-        characterCollectionView.topAnchor.constraint(equalTo: safeArea.topAnchor, constant: 0).isActive = true
-        characterCollectionView.leftAnchor.constraint(equalTo: self.leftAnchor, constant: 0).isActive = true
-        characterCollectionView.rightAnchor.constraint(equalTo: self.rightAnchor, constant: 0).isActive = true
-        characterCollectionView.bottomAnchor.constraint(equalTo: self.bottomAnchor).isActive = true
+        characterCollectionView.setTopConstraintWith(topAnchor, withConstantEqualTo: UIScreen.main.bounds.height * 0.12)
+        characterCollectionView.setLeftConstraintWith(leftAnchor)
+        characterCollectionView.setRightConstraintWith(rightAnchor)
+        characterCollectionView.setBottomConstraintWith(bottomAnchor)
     }
     
     private func setupSearchBarConstraints(){
