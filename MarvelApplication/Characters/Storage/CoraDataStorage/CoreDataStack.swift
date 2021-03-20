@@ -8,14 +8,14 @@
 import Foundation
 import CoreData
 
-class CoreDataStack {
+public final class CoreDataStack {
     
     private init(){}
     
-    static var shared = CoreDataStack()
+    public static var shared = CoreDataStack()
     
-    lazy var persistentContainer: NSPersistentCloudKitContainer = {
-        let container = NSPersistentCloudKitContainer(name: "CoreDataStorage")
+    lazy var persistentContainer: NSPersistentContainer = {
+        let container = NSPersistentContainer(name: "CoreDataStorage")
         container.loadPersistentStores(completionHandler: { (storeDescription, error) in
             
             if let error = error as NSError? {
@@ -28,8 +28,7 @@ class CoreDataStack {
         return container
     }()
     
-    lazy var viewContext : NSManagedObjectContext = {
-        persistentContainer.viewContext.automaticallyMergesChangesFromParent = true
+    public lazy var viewContext : NSManagedObjectContext = {
         return persistentContainer.viewContext
     }()
 
@@ -46,11 +45,11 @@ class CoreDataStack {
     }
     
     // MARK: - Test mockups
-    lazy var mockPersistantContainer: NSPersistentContainer = {
+    public lazy var mockPersistantContainer: NSPersistentContainer = {
         let persistentStoreDescription = NSPersistentStoreDescription()
         persistentStoreDescription.type = NSInMemoryStoreType
 
-        let container = NSPersistentContainer(name: "MacroChallenge")
+        let container = NSPersistentContainer(name: "CoreDataStorage")
         container.persistentStoreDescriptions = [persistentStoreDescription]
 
         container.loadPersistentStores { (_, error) in

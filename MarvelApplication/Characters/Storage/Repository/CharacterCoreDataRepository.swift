@@ -8,16 +8,16 @@
 import Foundation
 import CoreData
 
-struct CharacterCoreDataRepository: CharacterRepository {
+public struct CharacterCoreDataRepository: CharacterRepository {
     
     let context: NSManagedObjectContext
     
     
-    init(context: NSManagedObjectContext) {
+    public init(context: NSManagedObjectContext) {
         self.context = context
     }
     
-    func get(id: UUID, completion: @escaping (Result<CharacterProtocol, CoreDataHandleError>) -> Void) {
+    public func get(id: UUID, completion: @escaping (Result<CharacterProtocol, CoreDataHandleError>) -> Void) {
         
         let fetchRequest: NSFetchRequest = CharacterCD.fetchRequest()
         let predicate = NSPredicate(format: "id == %@", id.uuidString)
@@ -41,7 +41,7 @@ struct CharacterCoreDataRepository: CharacterRepository {
         }
     }
     
-    func list(completion: @escaping (Result<[CharacterProtocol], CoreDataHandleError>) -> Void) {
+    public func list(completion: @escaping (Result<[CharacterProtocol], CoreDataHandleError>) -> Void) {
         
         let fetchRequest: NSFetchRequest = CharacterCD.fetchRequest()
         
@@ -63,9 +63,9 @@ struct CharacterCoreDataRepository: CharacterRepository {
         
     }
     
-    func add(_ item: CharacterProtocol, completion: @escaping (Result<Void, CoreDataHandleError>) -> Void) {
+    public func add(_ item: CharacterProtocol, completion: @escaping (Result<Void, CoreDataHandleError>) -> Void) {
         
-        let characterCD: CharacterCD = CharacterCD(context: self.context)
+        let characterCD: CharacterCD = CharacterCD(context: self.context) 
         characterCD.id = item.id
         characterCD.name = item.name
         characterCD.characterID = Int64(item.characterID)
@@ -81,7 +81,7 @@ struct CharacterCoreDataRepository: CharacterRepository {
         
     }
     
-    func delete(_ item: CharacterProtocol, completion: (Result<Void, CoreDataHandleError>) -> Void) {
+    public func delete(_ item: CharacterProtocol, completion: (Result<Void, CoreDataHandleError>) -> Void) {
         
         let fetchRequest: NSFetchRequest = CharacterCD.fetchRequest()
         let predicate = NSPredicate(format: "id == %@", item.id.uuidString)

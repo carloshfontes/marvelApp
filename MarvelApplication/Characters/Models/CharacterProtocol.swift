@@ -7,7 +7,7 @@
 
 import Foundation
 
-protocol CharacterProtocol {
+public protocol CharacterProtocol {
     var name: String { get set }
     var description: String? { get set }
     var id: UUID { get set }
@@ -16,12 +16,20 @@ protocol CharacterProtocol {
 }
 
 
-struct CharacterObject: CharacterProtocol {
+public struct CharacterObject: CharacterProtocol {
     
-    var name: String
-    var description: String?
-    var id: UUID
-    var characterID: Int
-    var thumbnail: Data?
+    public var name: String
+    public var description: String?
+    public var id: UUID
+    public var characterID: Int
+    public var thumbnail: Data?
+    
+    public init(name: String, description: String?, id: UUID, characterID: Int, thumbnail: Data?){
+        self.name = name
+        self.description = description
+        self.id = id
+        self.characterID = characterID
+        self.thumbnail = thumbnail
+    }
     
 }

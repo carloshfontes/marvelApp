@@ -101,8 +101,7 @@ public final class CharactersListViewController: UIViewController {
 
 // MARK: - Presenter output
 extension CharactersListViewController: CharactersListPresenterOutput {
-    
-    
+
     func saveCharacterWith(viewObject: CharactersListModels.ViewObject.CharacterProtocolVO) {
         self.interactor?.addCharacterWith(request: CharactersListModels.Request.CharacterVO(name: viewObject.name, description: viewObject.description, id: viewObject.id, characterID: viewObject.characterID, thumbnail: viewObject.thumbnail))
     }
@@ -117,16 +116,35 @@ extension CharactersListViewController: CharactersListPresenterOutput {
         
     }
     
-    
+    func displayEmptyListOfCharacter(response: CharactersListModels.Response.Message) {
+        DispatchQueue.main.async {
+            let view: UIView = UIView(frame: .zero)
+            view.backgroundColor = .red
+            self.characterListView.characterCollectionView.backgroundView = view
+        }
+    }
 }
 
 
 extension CharactersListViewController: CharacterCollectionDelegate {
-    
     
     func didTappedInFavoriteButtonAndSave(_ character: CharactersListModels.ViewObject.CharacterVO) {
         
         self.interactor?.downloadImageWith(request: CharactersListModels.Request.Image(path: character.thumbnail), of: CharactersListModels.Request.CharacterVO(name: character.name ?? "", description: character.description, id: UUID(), characterID: character.id ?? 0, thumbnail: nil))
     }
 
+}
+
+
+// MARK: - Searchbar delegate
+
+extension CharactersListViewController: UISearchBarDelegate {
+    
+    public func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        self.interactor?.fetchListOfCharacterWith(searchBar.searchTextField.text ?? "", byOrder: .nameIncrease, andWithLimit: 80)
+    }
+    
+    public func searchBarTextDidEndEditing(_ searchBar: UISearchBar) {
+        self.interactor?.fetchListOfCharacterWith(searchBar.searchTextField.text ?? "", byOrder: .nameIncrease, andWithLimit: 80)
+    }
 }

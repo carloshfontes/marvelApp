@@ -13,6 +13,7 @@ protocol CharactersListInteractorInput: class {
     var characterServiceWorker: CharacterServiceWorkerProtocol { get set }
     
     func fetchListOfCharacterOrder(by: CharacterOrderBy, andWithLimit limit: Int)
+    func fetchListOfCharacterWith(_ name: String, byOrder order: CharacterOrderBy, andWithLimit limit: Int)
     func addCharacterWith(request: CharactersListModels.Request.CharacterVO)
     func downloadImageWith(request: CharactersListModels.Request.Image, of character: CharactersListModels.Request.CharacterVO)
 }
@@ -35,10 +36,32 @@ final class CharactersListInteractor: CharactersListInteractorInput {
             
             switch result {
             
-            case .success(let characters):
-                self.presenter?.presetListOfCharacter(response: CharactersListModels.Fetch.Response(characters: characters, errorMessage: nil))
-            case .failure:
-                self.presenter?.presetListOfCharacter(response: CharactersListModels.Fetch.Response(characters: nil, errorMessage: ""))
+            case .success(var characters):
+                
+//                characters = []
+                if characters.count > 0 {
+                    self.presenter?.presetListOfCharacter(response: CharactersListModels.Fetch.Response(characters: characters, errorMessage: nil))
+                }else {
+                    self.presenter?.presetnEmptyListOfCharacter(response: CharactersListModels.Response.Message(text: "Não possui personagens cadastrados. "))
+                }
+                
+                
+            case .failure(let error):
+                self.presenter?.presetListOfCharacter(response: CharactersListModels.Fetch.Response(characters: nil, errorMessage: error.localizedDescription))
+            }
+        }
+    }
+    
+    func fetchListOfCharacterWith(_ name: String, byOrder order: CharacterOrderBy, andWithLimit limit: Int) {
+        
+        self.characterServiceWorker.getListOfCharactersStartsWith(name, orderBy: order, andWithLimit: limit) { (result) in
+            
+            switch result {
+            
+            case .success(let characterList):
+                self.presenter?.presetListOfCharacter(response: CharactersListModels.Fetch.Response(characters: characterList, errorMessage: nil))
+            case .failure(let error):
+                self.presenter?.presetListOfCharacter(response: CharactersListModels.Fetch.Response(characters: nil, errorMessage: error.localizedDescription))
             }
         }
     }

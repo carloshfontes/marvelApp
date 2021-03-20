@@ -30,7 +30,7 @@ public enum CharacterOrderBy {
 }
 
 enum CharacterProvider {
-    case characters(orderBy: CharacterOrderBy, limit: Int)
+    case characters(orderBy: CharacterOrderBy, limit: Int, startsWithName: String?)
 }
 
 
@@ -47,16 +47,30 @@ extension CharacterProvider: ServiceProtocol {
     var parameters: [String : Any]? {
         switch self {
         
-        case .characters(orderBy: let orderBy, limit: let limit):
+        case .characters(orderBy: let orderBy, limit: let limit, let startsWithName):
             let ts = String(Date().timeIntervalSince1970)
             let hash = MD5(string: ts + CharacterBaseParameters.privateApiKey + CharacterBaseParameters.publicApiKey)
-            return [
-                "orderBy": orderBy.get(),
-                "limit": limit,
-                "apikey": CharacterBaseParameters.publicApiKey,
-                "ts": ts,
-                "hash": hash
-            ]
+            
+            if let startsWithName = startsWithName {
+                return [
+                    "nameStartsWith": startsWithName,
+                    "orderBy": orderBy.get(),
+                    "limit": limit,
+                    "apikey": CharacterBaseParameters.publicApiKey,
+                    "ts": ts,
+                    "hash": hash
+                ]
+            }else {
+                return [
+                    "orderBy": orderBy.get(),
+                    "limit": limit,
+                    "apikey": CharacterBaseParameters.publicApiKey,
+                    "ts": ts,
+                    "hash": hash
+                ]
+            }
+            
+            
         }
     }
     

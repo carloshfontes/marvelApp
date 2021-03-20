@@ -9,7 +9,7 @@ import Foundation
 
 
 
-enum CoreDataHandleError {
+public enum CoreDataHandleError {
 
     case notFound
     case cantFetch
@@ -19,7 +19,7 @@ enum CoreDataHandleError {
 
 extension CoreDataHandleError: LocalizedError {
    
-    var errorDescription: String? {
+    public var errorDescription: String? {
         
         switch self {
         

@@ -14,15 +14,17 @@ protocol CharactersListPresenterInput: class{
     func presentErrorWith(_ response: CharactersListModels.Response.Error)
     func presentSucessToFavorite()
     func presentCharacterWithDownloadedImage(response: CharactersListModels.Response.CharacterVO)
+    func presetnEmptyListOfCharacter(response: CharactersListModels.Response.Message)
 }
 
 protocol CharactersListPresenterOutput: class{
     func displayListOfCharactersWith(viewObject: CharactersListModels.ViewObject)
     func displayErrorWith(message: CharactersListModels.Error)
     func saveCharacterWith(viewObject: CharactersListModels.ViewObject.CharacterProtocolVO)
+    func displayEmptyListOfCharacter(response: CharactersListModels.Response.Message)
 }
 
-final class CharactersListPresenter: CharactersListPresenterInput {    
+final class CharactersListPresenter: CharactersListPresenterInput {
 
     weak var viewController: CharactersListPresenterOutput?
 
@@ -50,6 +52,10 @@ final class CharactersListPresenter: CharactersListPresenterInput {
     
     func presentCharacterWithDownloadedImage(response: CharactersListModels.Response.CharacterVO) {
         viewController?.saveCharacterWith(viewObject: CharactersListModels.ViewObject.CharacterProtocolVO(name: response.name, description: response.description, id: response.id, characterID: response.characterID, thumbnail: response.thumbnail))
+    }
+    
+    func presetnEmptyListOfCharacter(response: CharactersListModels.Response.Message) {
+        viewController?.displayEmptyListOfCharacter(response: response)
     }
 
 }
