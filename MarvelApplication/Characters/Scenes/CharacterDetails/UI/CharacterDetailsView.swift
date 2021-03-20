@@ -13,6 +13,7 @@ final class CharacterDetailsView: UIView {
     private let backgroundImageView: UIImageView = {
         let view = UIImageView(frame: .zero)
         view.contentMode = .scaleAspectFill
+        view.clipsToBounds = true
         return view
     }()
     
@@ -55,6 +56,7 @@ final class CharacterDetailsView: UIView {
     func configViewWith(_ imagePath: String?, withDescription description: String?, andWithName name: String?){
         if let path = imagePath {
             self.backgroundImageView.setupWith(url: path)
+            
             
         }
         
