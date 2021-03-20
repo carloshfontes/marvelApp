@@ -38,6 +38,7 @@ final class CharactersListInteractor: CharactersListInteractorInput {
             
             case .success(var characters):
                 
+                characters = []
                 if characters.count > 0 {
                     
                     let characterListVO: [CharacterDetailsModels.Response.CharacterVO] = characters.map { (character) -> CharacterDetailsModels.Response.CharacterVO in

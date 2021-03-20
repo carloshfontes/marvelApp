@@ -7,6 +7,7 @@
 
 import Foundation
 import Kingfisher
+import MarvelUI
 
 
 public final class CharactersListViewController: UIViewController {
@@ -119,9 +120,9 @@ extension CharactersListViewController: CharactersListPresenterOutput {
     
     func displayEmptyListOfCharacter(response: CharactersListModels.Response.Message) {
         DispatchQueue.main.async {
-            let view: UIView = UIView(frame: .zero)
-            view.backgroundColor = .red
-            self.characterListView.characterCollectionView.backgroundView = view
+            let messageView: MessageView = MessageView()
+            messageView.configMessageViewWithColor(withSize: UIFont.boldSystemFont(ofSize: 20), withMessage: response.text)
+            self.characterListView.characterCollectionView.backgroundView = messageView
         }
     }
 }

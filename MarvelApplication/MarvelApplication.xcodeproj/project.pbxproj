@@ -45,6 +45,7 @@
 		40C5703D26059BFE0021C642 /* UIViewControllerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40C5703C26059BFE0021C642 /* UIViewControllerExtension.swift */; };
 		40C570452605A1600021C642 /* FavoritesRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40C570442605A1600021C642 /* FavoritesRouter.swift */; };
 		40C5704D260633A70021C642 /* CharacterTableViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40C5704C260633A70021C642 /* CharacterTableViewDelegate.swift */; };
+		40C5705E26064F300021C642 /* MessageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40C5705D26064F300021C642 /* MessageView.swift */; };
 		40C687DC26023C1400349373 /* CharacterServiceWorkTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40C687DB26023C1400349373 /* CharacterServiceWorkTests.swift */; };
 		40C687EC26039DCE00349373 /* CoreDataStorage.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 40C687EA26039DCE00349373 /* CoreDataStorage.xcdatamodeld */; };
 		40C687F426039F1200349373 /* CoreDataStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40C687F326039F1200349373 /* CoreDataStack.swift */; };
@@ -220,6 +221,7 @@
 		40C5703C26059BFE0021C642 /* UIViewControllerExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewControllerExtension.swift; sourceTree = "<group>"; };
 		40C570442605A1600021C642 /* FavoritesRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesRouter.swift; sourceTree = "<group>"; };
 		40C5704C260633A70021C642 /* CharacterTableViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterTableViewDelegate.swift; sourceTree = "<group>"; };
+		40C5705D26064F300021C642 /* MessageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageView.swift; sourceTree = "<group>"; };
 		40C687DB26023C1400349373 /* CharacterServiceWorkTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterServiceWorkTests.swift; sourceTree = "<group>"; };
 		40C687EB26039DCE00349373 /* CoreDataStorage.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = CoreDataStorage.xcdatamodel; sourceTree = "<group>"; };
 		40C687F326039F1200349373 /* CoreDataStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataStack.swift; sourceTree = "<group>"; };
@@ -416,6 +418,7 @@
 		4041127A26001507009D5E3B /* MarvelUI */ = {
 			isa = PBXGroup;
 			children = (
+				40C5705C26064F0B0021C642 /* Components */,
 				40019BDA26051D7000FA32F6 /* Alerts */,
 				40C62C592601175200773656 /* Color */,
 				4041129C2600152D009D5E3B /* ViewCode */,
@@ -554,6 +557,14 @@
 				40737A2F2604F38700BDB218 /* CharacterCoreDataRepository.swift */,
 			);
 			path = Repository;
+			sourceTree = "<group>";
+		};
+		40C5705C26064F0B0021C642 /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				40C5705D26064F300021C642 /* MessageView.swift */,
+			);
+			path = Components;
 			sourceTree = "<group>";
 		};
 		40C62C592601175200773656 /* Color */ = {
@@ -1244,6 +1255,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				40C5705E26064F300021C642 /* MessageView.swift in Sources */,
 				40019BF226051F7100FA32F6 /* UIViewControllerExtension.swift in Sources */,
 				4041129E2600153D009D5E3B /* ViewCodable.swift in Sources */,
 				404112A62600161E009D5E3B /* UIViewExtension.swift in Sources */,
