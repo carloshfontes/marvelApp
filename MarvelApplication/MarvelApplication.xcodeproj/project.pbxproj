@@ -43,6 +43,8 @@
 		40B5ABE52603BFA100497271 /* CoreDataHandleError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40B5ABE42603BFA100497271 /* CoreDataHandleError.swift */; };
 		40B5ABED2603C51900497271 /* CharacterStorageWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40B5ABEC2603C51900497271 /* CharacterStorageWorker.swift */; };
 		40C5703D26059BFE0021C642 /* UIViewControllerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40C5703C26059BFE0021C642 /* UIViewControllerExtension.swift */; };
+		40C570452605A1600021C642 /* FavoritesRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40C570442605A1600021C642 /* FavoritesRouter.swift */; };
+		40C5704D260633A70021C642 /* CharacterTableViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40C5704C260633A70021C642 /* CharacterTableViewDelegate.swift */; };
 		40C687DC26023C1400349373 /* CharacterServiceWorkTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40C687DB26023C1400349373 /* CharacterServiceWorkTests.swift */; };
 		40C687EC26039DCE00349373 /* CoreDataStorage.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 40C687EA26039DCE00349373 /* CoreDataStorage.xcdatamodeld */; };
 		40C687F426039F1200349373 /* CoreDataStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40C687F326039F1200349373 /* CoreDataStack.swift */; };
@@ -216,6 +218,8 @@
 		40B5ABE42603BFA100497271 /* CoreDataHandleError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataHandleError.swift; sourceTree = "<group>"; };
 		40B5ABEC2603C51900497271 /* CharacterStorageWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterStorageWorker.swift; sourceTree = "<group>"; };
 		40C5703C26059BFE0021C642 /* UIViewControllerExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewControllerExtension.swift; sourceTree = "<group>"; };
+		40C570442605A1600021C642 /* FavoritesRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesRouter.swift; sourceTree = "<group>"; };
+		40C5704C260633A70021C642 /* CharacterTableViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterTableViewDelegate.swift; sourceTree = "<group>"; };
 		40C687DB26023C1400349373 /* CharacterServiceWorkTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterServiceWorkTests.swift; sourceTree = "<group>"; };
 		40C687EB26039DCE00349373 /* CoreDataStorage.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = CoreDataStorage.xcdatamodel; sourceTree = "<group>"; };
 		40C687F326039F1200349373 /* CoreDataStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataStack.swift; sourceTree = "<group>"; };
@@ -363,6 +367,7 @@
 		401DF057260135F9004A200E /* Delegate */ = {
 			isa = PBXGroup;
 			children = (
+				40C5704C260633A70021C642 /* CharacterTableViewDelegate.swift */,
 			);
 			path = Delegate;
 			sourceTree = "<group>";
@@ -378,6 +383,7 @@
 				4081CFFA2601260600370EC7 /* FavoritesInteractor.swift */,
 				4081D0022601263C00370EC7 /* FavoritesPresenterInput.swift */,
 				40737A212604357700BDB218 /* FavoritesModels.swift */,
+				40C570442605A1600021C642 /* FavoritesRouter.swift */,
 			);
 			path = Favorites;
 			sourceTree = "<group>";
@@ -1303,8 +1309,10 @@
 				404112322600016B009D5E3B /* CharacterCollectionViewDelegate.swift in Sources */,
 				40F442C125FD0A86002E02B7 /* CharactersListModels.swift in Sources */,
 				40C6880F2603BBC900349373 /* CharacterCD+CoreDataProperties.swift in Sources */,
+				40C5704D260633A70021C642 /* CharacterTableViewDelegate.swift in Sources */,
 				40737A222604357700BDB218 /* FavoritesModels.swift in Sources */,
 				4021D1F8260123D800F9E351 /* FavoritesViewController.swift in Sources */,
+				40C570452605A1600021C642 /* FavoritesRouter.swift in Sources */,
 				4041121D25FFE532009D5E3B /* CharacterCollectionViewDataSource.swift in Sources */,
 				40CE411525FFDE36007E9566 /* CharacterListView.swift in Sources */,
 				40C687EC26039DCE00349373 /* CoreDataStorage.xcdatamodeld in Sources */,

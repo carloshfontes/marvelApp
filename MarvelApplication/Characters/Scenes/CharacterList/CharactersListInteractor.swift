@@ -38,9 +38,13 @@ final class CharactersListInteractor: CharactersListInteractorInput {
             
             case .success(var characters):
                 
-//                characters = []
                 if characters.count > 0 {
-                    self.presenter?.presetListOfCharacter(response: CharactersListModels.Fetch.Response(characters: characters, errorMessage: nil))
+                    
+                    let characterListVO: [CharacterDetailsModels.Response.CharacterVO] = characters.map { (character) -> CharacterDetailsModels.Response.CharacterVO in
+                        return CharacterDetailsModels.Response.CharacterVO(name: character.name, description: character.description, id: UUID(), characterID: character.id, thumbnail: nil, thumbnailPath: "\(character.thumbnail.path).\(character.thumbnail.thumbnailExtension)")
+                    }
+                    
+                    self.presenter?.presetListOfCharacter(response: CharactersListModels.Fetch.Response(characters: characterListVO, errorMessage: nil))
                 }else {
                     self.presenter?.presetnEmptyListOfCharacter(response: CharactersListModels.Response.Message(text: "Não possui personagens cadastrados. "))
                 }
@@ -59,7 +63,18 @@ final class CharactersListInteractor: CharactersListInteractorInput {
             switch result {
             
             case .success(let characterList):
-                self.presenter?.presetListOfCharacter(response: CharactersListModels.Fetch.Response(characters: characterList, errorMessage: nil))
+                
+                if characterList.count > 0{
+                    
+                    let characterListVO: [CharacterDetailsModels.Response.CharacterVO] = characterList.map { (character) -> CharacterDetailsModels.Response.CharacterVO in
+                        return CharacterDetailsModels.Response.CharacterVO(name: character.name, description: character.description, id: UUID(), characterID: character.id, thumbnail: nil, thumbnailPath: "\(character.thumbnail.path).\(character.thumbnail.thumbnailExtension)")
+                    }
+                    
+                    self.presenter?.presetListOfCharacter(response: CharactersListModels.Fetch.Response(characters: characterListVO, errorMessage: nil))
+                } else {
+                    self.presenter?.presetnEmptyListOfCharacter(response: CharactersListModels.Response.Message(text: "Não possui personagens cadastrados. "))
+                }
+                
             case .failure(let error):
                 self.presenter?.presetListOfCharacter(response: CharactersListModels.Fetch.Response(characters: nil, errorMessage: error.localizedDescription))
             }

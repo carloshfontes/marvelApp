@@ -12,7 +12,7 @@ public final class CharacterDetailsViewController: UIViewController {
     // MARK: - Properties
     var interactor: CharacterDetailsInteractorInput?
     var router: CharacterDetailsRouterProtocol?
-    var characterViewObject: CharacterDetailsModels.ViewObject.CharacterVO?
+    var characterViewObject: CharacterProtocol?
     
     // MARK: - Views
     var characterDetailsView: CharacterDetailsView = {
@@ -33,7 +33,7 @@ public final class CharacterDetailsViewController: UIViewController {
     
     public override func viewWillAppear(_ animated: Bool) {
         self.removeNavigationImage()
-        characterDetailsView.configViewWith(characterViewObject?.thumbnail, withDescription: characterViewObject?.description, andWithName: characterViewObject?.name)
+        characterDetailsView.configViewWith(characterViewObject?.thumbnailPath, orWithImageData: characterViewObject?.thumbnail, withDescription: characterViewObject?.description, andWithName: characterViewObject?.name)
         
     }
     

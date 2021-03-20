@@ -33,7 +33,7 @@ final class CharactersListPresenter: CharactersListPresenterInput {
         
         if let characters = response.characters {
             let characterListVO = characters.map { (character) -> CharactersListModels.ViewObject.CharacterVO in
-                return CharactersListModels.ViewObject.CharacterVO(id: character.id, name: character.name, description: character.description, thumbnail: "\(character.thumbnail.path).\(character.thumbnail.thumbnailExtension)")
+                return CharactersListModels.ViewObject.CharacterVO(name: character.name, description: character.description, id: character.id, characterID: character.characterID,thumbnailPath: character.thumbnailPath)
             }
             
             viewController?.displayListOfCharactersWith(viewObject: CharactersListModels.ViewObject(characters: characterListVO))

@@ -21,7 +21,7 @@ public final class CharactersListRouter: CharactersListRouterProtocol {
         
         let characterDetailsVC: CharacterDetailsViewController = CharacterDetailsViewController()
         
-        CharacterDetailsConfigurator.configureWith(viewController: characterDetailsVC, withCharacterID: viewObject.id, withName: viewObject.name, withDescription: viewObject.description, andWithThumbnail: viewObject.thumbnail)
+        CharacterDetailsConfigurator.configureWith(viewController: characterDetailsVC, withCharacterID: viewObject.characterID, withName: viewObject.name, withDescription: viewObject.description, andWithThumbnail: viewObject.thumbnailPath, withNavigationController: navigationController)
         navigationController?.pushViewController(characterDetailsVC, animated: true)
 
     }
@@ -29,7 +29,7 @@ public final class CharactersListRouter: CharactersListRouterProtocol {
     func routeToFavorites(){
         let favoritesVC: FavoritesViewController = FavoritesViewController()
         
-        FavoritesConfigurator.configureWith(viewController: favoritesVC)
+        FavoritesConfigurator.configureWith(viewController: favoritesVC, withNavigationController: self.navigationController)
         navigationController?.pushViewController(favoritesVC, animated: true)
     }
 

@@ -32,7 +32,7 @@ final class CharacterCollectionViewDataSource: NSObject, UICollectionViewDataSou
         }
         
         let character = self.characters[indexPath.row]
-        cell.configWith(name: character.name ?? "", andWithImagePath: character.thumbnail)
+        cell.configWith(name: character.name, andWithImagePath: character.thumbnailPath)
         
         
         cell.favoriteButton.tintColor = .gray

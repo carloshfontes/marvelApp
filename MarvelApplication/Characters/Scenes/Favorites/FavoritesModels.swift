@@ -15,6 +15,7 @@ struct FavoritesModels {
         
         struct CharacterVO: CharacterProtocol {
             
+            var thumbnailPath: String?
             var name: String
             var description: String?
             var id: UUID
@@ -43,7 +44,8 @@ struct FavoritesModels {
             var id: UUID
             var characterID: Int
             var thumbnail: Data?
-            
+            var thumbnailPath: String?
+
         }
         
         struct Error {
@@ -66,7 +68,8 @@ struct FavoritesModels {
             var id: UUID
             var characterID: Int
             var thumbnail: Data?
-               
+            var thumbnailPath: String?
+
         }
     }
 }

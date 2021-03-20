@@ -13,6 +13,7 @@ struct CharactersListModels {
     struct Request {
         struct CharacterVO: CharacterProtocol {
             
+            var thumbnailPath: String?
             var name: String
             var description: String?
             var id: UUID
@@ -40,6 +41,7 @@ struct CharactersListModels {
         
         struct CharacterVO: CharacterProtocol {
             
+            var thumbnailPath: String?
             var name: String
             var description: String?
             var id: UUID
@@ -54,7 +56,7 @@ struct CharactersListModels {
     
     struct Fetch {
         struct Response {
-            let characters: [Character]?
+            let characters: [CharacterProtocol]?
             let errorMessage: String?
         }
     }
@@ -63,11 +65,13 @@ struct CharactersListModels {
         
         var characters: [CharacterVO]
         
-        struct CharacterVO {
-            let id: Int?
-            let name: String?
-            let description: String?
-            let thumbnail: String?
+        struct CharacterVO: CharacterProtocol {
+            var name: String
+            var description: String?
+            var id: UUID
+            var characterID: Int
+            var thumbnail: Data?
+            var thumbnailPath: String?
         }
         
         struct CharacterProtocolVO: CharacterProtocol {
@@ -77,7 +81,8 @@ struct CharactersListModels {
             var id: UUID
             var characterID: Int
             var thumbnail: Data?
-        
+            var thumbnailPath: String?
+
         }
         
         struct Image {

@@ -32,9 +32,10 @@ public struct CharacterCoreDataRepository: CharacterRepository {
                 return
             }
             
-            let characterObject: CharacterProtocol = CharacterObject(name: character.name, description: character.characterDescription ?? "", id: character.id, characterID: Int(character.characterID), thumbnail: character.thumbnail)
-            
+            let characterObject: CharacterProtocol = CharacterObject(name: character.name, description: character.characterDescription ?? "", id: character.id, characterID: Int(character.characterID), thumbnail: character.thumbnail, thumbnailPath: nil)
+
             completion(.success(characterObject))
+            
             
         }catch{
             completion(.failure(.cantFetch))
@@ -51,7 +52,7 @@ public struct CharacterCoreDataRepository: CharacterRepository {
         
             
             let characterList: [CharacterProtocol] = objects.map { (character) -> CharacterProtocol in
-                return CharacterObject(name: character.name, description: character.characterDescription, id: character.id, characterID: Int(character.characterID), thumbnail: character.thumbnail)
+                return CharacterObject(name: character.name, description: character.characterDescription, id: character.id, characterID: Int(character.characterID), thumbnail: character.thumbnail, thumbnailPath: nil)
             }
             
             

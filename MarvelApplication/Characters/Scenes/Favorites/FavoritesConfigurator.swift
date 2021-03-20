@@ -9,7 +9,7 @@ import Foundation
 
 public final class FavoritesConfigurator {
     
-    public static func configureWith(viewController: FavoritesViewController){
+    public static func configureWith(viewController: FavoritesViewController, withNavigationController navigation: UINavigationController?){
         
         let repository: CharacterRepository = CharacterCoreDataRepository(context: CoreDataStack.shared.viewContext)
         
@@ -17,10 +17,13 @@ public final class FavoritesConfigurator {
         
         let interactor: FavoritesInteractorInput = FavoritesInteractor(characterStorageWorker: characterStorageWorker)
         let presenter: FavoritesPresenterInput = FavoritesPresenter()
+        var router: FavoritesRouterProtocol = FavoritesRouter()
         
         viewController.interactor = interactor
+        viewController.router = router
         
         interactor.presenter = presenter
         presenter.viewController = viewController
+        router.navigationController = navigation
     }
 }

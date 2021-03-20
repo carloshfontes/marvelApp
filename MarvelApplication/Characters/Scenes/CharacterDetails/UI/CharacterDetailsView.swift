@@ -53,11 +53,13 @@ final class CharacterDetailsView: UIView {
         setupViews()
     }
     
-    func configViewWith(_ imagePath: String?, withDescription description: String?, andWithName name: String?){
+    func configViewWith(_ imagePath: String?, orWithImageData data: Data?, withDescription description: String?, andWithName name: String?){
         if let path = imagePath {
             self.backgroundImageView.setupWith(url: path)
-            
-            
+        }
+        
+        if let data = data {
+            self.backgroundImageView.image = UIImage(data: data)
         }
         
         if let description = description {

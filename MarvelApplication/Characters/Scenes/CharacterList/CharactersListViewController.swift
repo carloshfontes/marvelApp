@@ -131,7 +131,7 @@ extension CharactersListViewController: CharacterCollectionDelegate {
     
     func didTappedInFavoriteButtonAndSave(_ character: CharactersListModels.ViewObject.CharacterVO) {
         
-        self.interactor?.downloadImageWith(request: CharactersListModels.Request.Image(path: character.thumbnail), of: CharactersListModels.Request.CharacterVO(name: character.name ?? "", description: character.description, id: UUID(), characterID: character.id ?? 0, thumbnail: nil))
+        self.interactor?.downloadImageWith(request: CharactersListModels.Request.Image(path: character.thumbnailPath), of: CharactersListModels.Request.CharacterVO(name: character.name, description: character.description, id: UUID(), characterID: character.characterID, thumbnail: nil))
     }
 
 }
