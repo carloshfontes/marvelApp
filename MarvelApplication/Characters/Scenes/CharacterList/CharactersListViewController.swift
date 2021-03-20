@@ -143,9 +143,11 @@ extension CharactersListViewController: UISearchBarDelegate {
     
     public func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         self.interactor?.fetchListOfCharacterWith(searchBar.searchTextField.text ?? "", byOrder: .nameIncrease, andWithLimit: 80)
+        searchBar.resignFirstResponder()
     }
     
     public func searchBarTextDidEndEditing(_ searchBar: UISearchBar) {
         self.interactor?.fetchListOfCharacterWith(searchBar.searchTextField.text ?? "", byOrder: .nameIncrease, andWithLimit: 80)
+        searchBar.resignFirstResponder()
     }
 }
