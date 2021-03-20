@@ -42,6 +42,7 @@
 		40B5ABDD2603BEB900497271 /* CharacterProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40B5ABDC2603BEB900497271 /* CharacterProtocol.swift */; };
 		40B5ABE52603BFA100497271 /* CoreDataHandleError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40B5ABE42603BFA100497271 /* CoreDataHandleError.swift */; };
 		40B5ABED2603C51900497271 /* CharacterStorageWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40B5ABEC2603C51900497271 /* CharacterStorageWorker.swift */; };
+		40C5703D26059BFE0021C642 /* UIViewControllerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40C5703C26059BFE0021C642 /* UIViewControllerExtension.swift */; };
 		40C687DC26023C1400349373 /* CharacterServiceWorkTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40C687DB26023C1400349373 /* CharacterServiceWorkTests.swift */; };
 		40C687EC26039DCE00349373 /* CoreDataStorage.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 40C687EA26039DCE00349373 /* CoreDataStorage.xcdatamodeld */; };
 		40C687F426039F1200349373 /* CoreDataStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40C687F326039F1200349373 /* CoreDataStack.swift */; };
@@ -214,6 +215,7 @@
 		40B5ABDC2603BEB900497271 /* CharacterProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterProtocol.swift; sourceTree = "<group>"; };
 		40B5ABE42603BFA100497271 /* CoreDataHandleError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataHandleError.swift; sourceTree = "<group>"; };
 		40B5ABEC2603C51900497271 /* CharacterStorageWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterStorageWorker.swift; sourceTree = "<group>"; };
+		40C5703C26059BFE0021C642 /* UIViewControllerExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewControllerExtension.swift; sourceTree = "<group>"; };
 		40C687DB26023C1400349373 /* CharacterServiceWorkTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterServiceWorkTests.swift; sourceTree = "<group>"; };
 		40C687EB26039DCE00349373 /* CoreDataStorage.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = CoreDataStorage.xcdatamodel; sourceTree = "<group>"; };
 		40C687F326039F1200349373 /* CoreDataStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataStack.swift; sourceTree = "<group>"; };
@@ -590,6 +592,7 @@
 				40DBC40825FFD75100C2B827 /* MD5.swift */,
 				4041121425FFE2B6009D5E3B /* Identifiable.swift */,
 				4052DF3B260032C100FB5187 /* UIImageViewExtension.swift */,
+				40C5703C26059BFE0021C642 /* UIViewControllerExtension.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -1310,6 +1313,7 @@
 				40D94B6C26005713008DA631 /* CharacterDetailsPresenter.swift in Sources */,
 				4081CFEB260124A800370EC7 /* FavoritesConfigurator.swift in Sources */,
 				4081D0122601307600370EC7 /* FavoritesView.swift in Sources */,
+				40C5703D26059BFE0021C642 /* UIViewControllerExtension.swift in Sources */,
 				40D94B5C26005684008DA631 /* CharacterDetailsRouter.swift in Sources */,
 				4081D0202601321C00370EC7 /* CharacterTableViewCell.swift in Sources */,
 				4041120B25FFE2A0009D5E3B /* CharacterCollectionViewCell.swift in Sources */,

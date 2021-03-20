@@ -52,6 +52,7 @@ public final class CharactersListViewController: UIViewController {
         self.navigationItem.titleView = characterListView.searchBar
         self.navigationItem.rightBarButtonItem = favoritesButtonScreen
         self.fetchListOfCharacter()
+        self.characterListView.searchBar.delegate = self
     }
     
     // MARK: - Functions
