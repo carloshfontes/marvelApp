@@ -10,7 +10,7 @@ import MarvelUI
 
 final class CharacterDetailsView: UIView {
     
-    private let backgroundImageView: UIImageView = {
+    let backgroundImageView: UIImageView = {
         let view = UIImageView(frame: .zero)
         view.contentMode = .scaleAspectFill
         view.clipsToBounds = true

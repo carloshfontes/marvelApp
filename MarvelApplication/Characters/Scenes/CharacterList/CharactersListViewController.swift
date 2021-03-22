@@ -106,11 +106,15 @@ public final class CharactersListViewController: UIViewController {
 extension CharactersListViewController: CharactersListPresenterOutput {
     
     func displayLoadingIndicator() {
-        self.characterListView.showLoadingIndicator(view: characterListView)
+        DispatchQueue.main.async {
+            self.characterListView.showLoadingIndicator(view: self.characterListView)
+        }
     }
     
     func stopLoadingIndicator() {
-        self.characterListView.dismissLoadingIndicator()
+        DispatchQueue.main.async {
+            self.characterListView.dismissLoadingIndicator()
+        }
     }
     
     

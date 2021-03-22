@@ -65,7 +65,7 @@ extension CharacterListView: ViewCodable {
 
     private func setupCharacterCollectionViewConstraints(){
         characterCollectionView.translatesAutoresizingMaskIntoConstraints = false
-        characterCollectionView.setTopConstraintWith(topAnchor, withConstantEqualTo: UIScreen.main.bounds.height * 0.12)
+        characterCollectionView.setTopConstraintWith(topAnchor, withConstantEqualTo: UIScreen.main.bounds.height * 0.15)
         characterCollectionView.setLeftConstraintWith(leftAnchor)
         characterCollectionView.setRightConstraintWith(rightAnchor)
         characterCollectionView.setBottomConstraintWith(bottomAnchor)

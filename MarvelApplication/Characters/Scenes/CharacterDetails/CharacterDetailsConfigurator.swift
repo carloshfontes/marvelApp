@@ -14,8 +14,11 @@ public final class CharacterDetailsConfigurator {
         
         let characterVO: CharacterProtocol = CharacterDetailsModels.ViewObject.CharacterVO(name: name, description: description, id: UUID(), characterID: id, thumbnail: data, thumbnailPath: thumbnail)
         
+        let repository: CharacterRepository = CharacterCoreDataRepository(context: CoreDataStack.shared.viewContext)
+        let characterStorageWorker: CharacterStorageWorkerProtocol = CharacterStorageWorker(repository: repository)
         
-        let interactor: CharacterDetailsInteractorInput = CharacterDetailsInteractor()
+        
+        let interactor: CharacterDetailsInteractorInput = CharacterDetailsInteractor(characterStorageWorker: characterStorageWorker)
         let presenter: CharacterDetailsPresenterInput = CharacterDetailsPresenter()
         var router: CharacterDetailsRouterProtocol = CharacterDetailsRouter()
         

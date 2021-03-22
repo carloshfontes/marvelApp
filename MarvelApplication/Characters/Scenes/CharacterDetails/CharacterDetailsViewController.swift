@@ -15,8 +15,9 @@ public final class CharacterDetailsViewController: UIViewController {
     var characterViewObject: CharacterProtocol?
     
     // MARK: - Views
-    var characterDetailsView: CharacterDetailsView = {
+    lazy var characterDetailsView: CharacterDetailsView = {
         let view = CharacterDetailsView(frame: .zero)
+        view.favoriteButton.addTarget(self, action: #selector(tappedOnFavoriteButton), for: .touchUpInside)
         return view
     }()
     
@@ -44,6 +45,17 @@ public final class CharacterDetailsViewController: UIViewController {
         self.navigationController?.navigationBar.shadowImage = UIImage()
     }
     
+    // MARK: - Selectors
+    
+    @objc func tappedOnFavoriteButton(){
+        
+        guard let name = characterViewObject?.name, let id = characterViewObject?.id, let characterID = characterViewObject?.characterID else { return }
+        
+        let request = CharacterDetailsModels.Request.CharacterVO(name: name, description: characterViewObject?.description, id: id, characterID: characterID, thumbnail: self.characterDetailsView.backgroundImageView.image?.pngData(), thumbnailPath: nil)
+        
+        self.interactor?.addCharacterWith(request: request)
+    }
+    
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
@@ -58,9 +70,12 @@ public final class CharacterDetailsViewController: UIViewController {
 
 extension CharacterDetailsViewController: CharacterDetailsPresenterOutput {
     
-    func displayListOfCharacterWith(response: CharacterDetailsModels.Response) {
-        print(response)
+    func displayErrorWith(_ response: CharacterDetailsModels.Response.Error) {
+        showAlert(withTitle: "", withMessage: response.message, withColor: .red, andWithStyle: .alert)
     }
     
+    func displayMessageWith(_ response: CharacterDetailsModels.Response.Message) {
+        showAlert(withTitle: "", withMessage: response.text, withColor: .green, andWithStyle: .alert)
+    }
     
 }

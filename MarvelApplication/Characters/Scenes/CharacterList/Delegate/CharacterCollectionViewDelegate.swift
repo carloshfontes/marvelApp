@@ -18,7 +18,8 @@ final class CharacterCollectionViewDelegate: NSObject, UICollectionViewDelegateF
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        CGSize(width: 380 , height: 480)
+        print("Bounds: ",UIScreen.main.bounds.height * 0.42)
+        return CGSize(width: UIScreen.main.bounds.height * 0.42 , height: UIScreen.main.bounds.height * 0.54)
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {

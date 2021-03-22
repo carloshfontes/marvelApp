@@ -58,5 +58,9 @@ struct CharacterDetailsModels {
         struct Error {
             let message: String
         }
+        
+        struct Message {
+            let text: String
+        }
     }
 }
