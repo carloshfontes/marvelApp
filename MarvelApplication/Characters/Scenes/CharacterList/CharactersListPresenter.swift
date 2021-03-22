@@ -12,9 +12,11 @@ protocol CharactersListPresenterInput: class{
     
     func presetListOfCharacter(response: CharactersListModels.Fetch.Response)
     func presentErrorWith(_ response: CharactersListModels.Response.Error)
-    func presentSucessToFavorite()
     func presentCharacterWithDownloadedImage(response: CharactersListModels.Response.CharacterVO)
     func presetnEmptyListOfCharacter(response: CharactersListModels.Response.Message)
+    func presentMessageWith(reesponse: CharactersListModels.Response.Message)
+    func presentLoadingIndicator()
+    func presentStopLoadingIndicator()
 }
 
 protocol CharactersListPresenterOutput: class{
@@ -22,13 +24,15 @@ protocol CharactersListPresenterOutput: class{
     func displayErrorWith(message: CharactersListModels.Error)
     func saveCharacterWith(viewObject: CharactersListModels.ViewObject.CharacterProtocolVO)
     func displayEmptyListOfCharacter(response: CharactersListModels.Response.Message)
+    func displayMessageWith(response: CharactersListModels.Response.Message)
+    func displayLoadingIndicator()
+    func stopLoadingIndicator()
 }
 
 final class CharactersListPresenter: CharactersListPresenterInput {
 
     weak var viewController: CharactersListPresenterOutput?
 
-    
     func presetListOfCharacter(response: CharactersListModels.Fetch.Response) {
         
         if let characters = response.characters {
@@ -44,10 +48,7 @@ final class CharactersListPresenter: CharactersListPresenterInput {
     }
     
     func presentErrorWith(_ response: CharactersListModels.Response.Error) {
-        
-    }
-    
-    func presentSucessToFavorite() {
+        viewController?.displayErrorWith(message: CharactersListModels.Error(message: response.message))
     }
     
     func presentCharacterWithDownloadedImage(response: CharactersListModels.Response.CharacterVO) {
@@ -57,5 +58,16 @@ final class CharactersListPresenter: CharactersListPresenterInput {
     func presetnEmptyListOfCharacter(response: CharactersListModels.Response.Message) {
         viewController?.displayEmptyListOfCharacter(response: response)
     }
-
+    
+    func presentMessageWith(reesponse: CharactersListModels.Response.Message) {
+        viewController?.displayMessageWith(response: reesponse)
+    }
+    
+    func presentLoadingIndicator() {
+        
+    }
+    
+    func presentStopLoadingIndicator() {
+        
+    }
 }

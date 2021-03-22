@@ -46,6 +46,7 @@
 		40C570452605A1600021C642 /* FavoritesRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40C570442605A1600021C642 /* FavoritesRouter.swift */; };
 		40C5704D260633A70021C642 /* CharacterTableViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40C5704C260633A70021C642 /* CharacterTableViewDelegate.swift */; };
 		40C5705E26064F300021C642 /* MessageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40C5705D26064F300021C642 /* MessageView.swift */; };
+		40C570D426083B380021C642 /* ActivableIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40C570D326083B380021C642 /* ActivableIndicator.swift */; };
 		40C687DC26023C1400349373 /* CharacterServiceWorkTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40C687DB26023C1400349373 /* CharacterServiceWorkTests.swift */; };
 		40C687EC26039DCE00349373 /* CoreDataStorage.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 40C687EA26039DCE00349373 /* CoreDataStorage.xcdatamodeld */; };
 		40C687F426039F1200349373 /* CoreDataStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40C687F326039F1200349373 /* CoreDataStack.swift */; };
@@ -222,6 +223,7 @@
 		40C570442605A1600021C642 /* FavoritesRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesRouter.swift; sourceTree = "<group>"; };
 		40C5704C260633A70021C642 /* CharacterTableViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterTableViewDelegate.swift; sourceTree = "<group>"; };
 		40C5705D26064F300021C642 /* MessageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageView.swift; sourceTree = "<group>"; };
+		40C570D326083B380021C642 /* ActivableIndicator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivableIndicator.swift; sourceTree = "<group>"; };
 		40C687DB26023C1400349373 /* CharacterServiceWorkTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterServiceWorkTests.swift; sourceTree = "<group>"; };
 		40C687EB26039DCE00349373 /* CoreDataStorage.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = CoreDataStorage.xcdatamodel; sourceTree = "<group>"; };
 		40C687F326039F1200349373 /* CoreDataStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataStack.swift; sourceTree = "<group>"; };
@@ -354,6 +356,7 @@
 			isa = PBXGroup;
 			children = (
 				40019BF126051F7100FA32F6 /* UIViewControllerExtension.swift */,
+				40C570D326083B380021C642 /* ActivableIndicator.swift */,
 			);
 			path = Alerts;
 			sourceTree = "<group>";
@@ -1259,6 +1262,7 @@
 				40019BF226051F7100FA32F6 /* UIViewControllerExtension.swift in Sources */,
 				4041129E2600153D009D5E3B /* ViewCodable.swift in Sources */,
 				404112A62600161E009D5E3B /* UIViewExtension.swift in Sources */,
+				40C570D426083B380021C642 /* ActivableIndicator.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1805,6 +1809,7 @@
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				INFOPLIST_FILE = Characters/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 14.4;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -1813,9 +1818,10 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.carlosfontes.Characters;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
+				SUPPORTS_MACCATALYST = NO;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
 			};
@@ -1835,6 +1841,7 @@
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				INFOPLIST_FILE = Characters/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 14.4;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -1843,8 +1850,9 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.carlosfontes.Characters;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
+				SUPPORTS_MACCATALYST = NO;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
 			};

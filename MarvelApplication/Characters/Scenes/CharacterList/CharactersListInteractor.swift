@@ -16,10 +16,13 @@ protocol CharactersListInteractorInput: class {
     func fetchListOfCharacterWith(_ name: String, byOrder order: CharacterOrderBy, andWithLimit limit: Int)
     func addCharacterWith(request: CharactersListModels.Request.CharacterVO)
     func downloadImageWith(request: CharactersListModels.Request.Image, of character: CharactersListModels.Request.CharacterVO)
+    
+    func activeLoadingIndicator()
+    func stopLoadingIndicator()
 }
 
 final class CharactersListInteractor: CharactersListInteractorInput {
-    
+
     var characterServiceWorker: CharacterServiceWorkerProtocol
     var characterStorageWorker: CharacterStorageWorkerProtocol
     var presenter: CharactersListPresenterInput?
@@ -36,9 +39,8 @@ final class CharactersListInteractor: CharactersListInteractorInput {
             
             switch result {
             
-            case .success(var characters):
+            case .success(let characters):
                 
-                characters = []
                 if characters.count > 0 {
                     
                     let characterListVO: [CharacterDetailsModels.Response.CharacterVO] = characters.map { (character) -> CharacterDetailsModels.Response.CharacterVO in
@@ -90,7 +92,7 @@ final class CharactersListInteractor: CharactersListInteractorInput {
             switch result {
                 
             case .success:
-                self.presenter?.presentSucessToFavorite()
+                self.presenter?.presentMessageWith(reesponse: CharactersListModels.Response.Message(text: "Personagem favoritado com suceesso."))
             case .failure(let error):
                 self.presenter?.presentErrorWith(CharactersListModels.Response.Error(message: error.localizedDescription))
             }
@@ -123,4 +125,12 @@ final class CharactersListInteractor: CharactersListInteractorInput {
         })
     }
 
+    
+    func activeLoadingIndicator() {
+        
+    }
+    
+    func stopLoadingIndicator() {
+        
+    }
 }

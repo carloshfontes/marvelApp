@@ -28,7 +28,7 @@ public final class CharactersListViewController: UIViewController {
     
     // MARK: - View
     
-    let characterListView: CharacterListView = {
+    var characterListView: CharacterListView = {
         let view = CharacterListView()
         return view
     }()
@@ -52,8 +52,8 @@ public final class CharactersListViewController: UIViewController {
     public override func viewWillAppear(_ animated: Bool) {
         self.navigationItem.titleView = characterListView.searchBar
         self.navigationItem.rightBarButtonItem = favoritesButtonScreen
-        self.fetchListOfCharacter()
         self.characterListView.searchBar.delegate = self
+        self.fetchListOfCharacter()
     }
     
     // MARK: - Functions
@@ -64,6 +64,7 @@ public final class CharactersListViewController: UIViewController {
         
         let option: CharacterOrderBy = options.randomElement() ?? .nameIncrease
         
+        self.interactor?.activeLoadingIndicator()
         interactor?.fetchListOfCharacterOrder(by: option, andWithLimit: 80)
     }
     
@@ -103,8 +104,24 @@ public final class CharactersListViewController: UIViewController {
 
 // MARK: - Presenter output
 extension CharactersListViewController: CharactersListPresenterOutput {
+    
+    func displayLoadingIndicator() {
+        self.characterListView.showLoadingIndicator(view: characterListView)
+    }
+    
+    func stopLoadingIndicator() {
+        self.characterListView.dismissLoadingIndicator()
+    }
+    
+    
+    func displayMessageWith(response: CharactersListModels.Response.Message) {
+        showAlert(withTitle: nil, withMessage: response.text, withColor: .green, andWithStyle: .alert)
+        self.interactor?.stopLoadingIndicator()
+
+    }
 
     func saveCharacterWith(viewObject: CharactersListModels.ViewObject.CharacterProtocolVO) {
+        self.interactor?.activeLoadingIndicator()
         self.interactor?.addCharacterWith(request: CharactersListModels.Request.CharacterVO(name: viewObject.name, description: viewObject.description, id: viewObject.id, characterID: viewObject.characterID, thumbnail: viewObject.thumbnail))
     }
     
@@ -112,10 +129,12 @@ extension CharactersListViewController: CharactersListPresenterOutput {
     func displayListOfCharactersWith(viewObject: CharactersListModels.ViewObject) {
         self.characterCollectionDelegate = CharacterCollectionViewDelegate(characterListVO: viewObject.characters)
         self.characterCollectionDataSource = CharacterCollectionViewDataSource(characters: viewObject.characters)
+        self.interactor?.stopLoadingIndicator()
     }
     
     func displayErrorWith(message: CharactersListModels.Error) {
-        
+        showAlert(withTitle: "Erro", withMessage: message.message, withColor: .red, andWithStyle: .alert)
+        self.interactor?.stopLoadingIndicator()
     }
     
     func displayEmptyListOfCharacter(response: CharactersListModels.Response.Message) {
@@ -143,11 +162,13 @@ extension CharactersListViewController: CharacterCollectionDelegate {
 extension CharactersListViewController: UISearchBarDelegate {
     
     public func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        self.interactor?.activeLoadingIndicator()
         self.interactor?.fetchListOfCharacterWith(searchBar.searchTextField.text ?? "", byOrder: .nameIncrease, andWithLimit: 80)
         searchBar.resignFirstResponder()
     }
     
     public func searchBarTextDidEndEditing(_ searchBar: UISearchBar) {
+        self.interactor?.activeLoadingIndicator()
         self.interactor?.fetchListOfCharacterWith(searchBar.searchTextField.text ?? "", byOrder: .nameIncrease, andWithLimit: 80)
         searchBar.resignFirstResponder()
     }

@@ -8,8 +8,12 @@
 import Foundation
 import MarvelUI
 
-final class CharacterListView: UIView {
+final class CharacterListView: UIView, ActivableIndicator {
     
+    var loadingIndicatorView: UIView?
+    
+    var activityIndicator: UIActivityIndicatorView?
+
     let searchBar: UISearchBar = {
         let search = UISearchBar(frame: .zero)
         search.placeholder = "Insira o nome de um personagem"
