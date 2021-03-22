@@ -43,6 +43,13 @@ final class CharacterDetailsView: UIView {
         return label
     }()
     
+    lazy var favoriteButton: UIButton = {
+        let button = UIButton(frame: .zero)
+        button.setImage(UIImage(systemName: "star.fill"), for: .normal)
+        button.tintColor = .gray
+        return button
+    }()
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         setupUI()
@@ -87,6 +94,7 @@ extension CharacterDetailsView: ViewCodable {
         addSubview(backgroundImageView)
         addSubview(bottomDetailView)
         bottomDetailView.addSubview(nameLabel)
+        bottomDetailView.addSubview(favoriteButton)
         bottomDetailView.addSubview(descriptionLabel)
     }
     
@@ -94,6 +102,7 @@ extension CharacterDetailsView: ViewCodable {
         setupBackgroundImageViewConstraints()
         setupBottomDetailViewConstraints()
         setupNameLabelConstraints()
+        setupFavoriteButtonConstraints()
         setupDescriptionLabelConstraints()
     }
     
@@ -119,6 +128,11 @@ extension CharacterDetailsView: ViewCodable {
         nameLabel.setCenterXWith(bottomDetailView.centerXAnchor)
     }
     
+    private func setupFavoriteButtonConstraints(){
+        favoriteButton.setTopConstraintWith(bottomDetailView.topAnchor, withConstantEqualTo: 20)
+        favoriteButton.setRightConstraintWith(bottomDetailView.rightAnchor, withConstantEqualTo: 20)
+    }
+    
     private func setupDescriptionLabelConstraints(){
         descriptionLabel.setLeftConstraintWith(bottomDetailView.leftAnchor, withConstantEqualTo: 20)
         descriptionLabel.setRightConstraintWith(bottomDetailView.rightAnchor, withConstantEqualTo: 20)
@@ -127,8 +141,6 @@ extension CharacterDetailsView: ViewCodable {
         descriptionLabel.setCenterXWith(self.centerXAnchor)
    
     }
-    
-    
-    
+
 }
 
